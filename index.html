@@ -1,0 +1,281 @@
+
+<!-- This is a generated file -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: hsl(30, 20%, 95%)
+  }
+</style>
+
+
+<link rel='stylesheet' href='https://unpkg.com/chevrotain@7.0.2/diagrams/diagrams.css'>
+
+<script src='https://unpkg.com/chevrotain@7.0.2/diagrams/vendor/railroad-diagrams.js'></script>
+<script src='https://unpkg.com/chevrotain@7.0.2/diagrams/src/diagrams_builder.js'></script>
+<script src='https://unpkg.com/chevrotain@7.0.2/diagrams/src/diagrams_behavior.js'></script>
+<script src='https://unpkg.com/chevrotain@7.0.2/diagrams/src/main.js'></script>
+
+<div id="diagrams" align="center"></div>    
+
+<script>
+    window.serializedGrammar = [
+  {
+    "type": "Rule",
+    "name": "X12 810",
+    "orgText": "",
+    "definition": [
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "object",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "array",
+                "idx": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "object",
+    "orgText": "Commerical Invoice",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "fromchannel",
+        "label": "fromchannel",
+        "idx": 0,
+        "pattern": "{"
+      },
+      {
+        "type": "Option",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "NonTerminal",
+            "name": "objectItem",
+            "idx": 0
+          },
+          {
+            "type": "Repetition",
+            "idx": 0,
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "REF",
+                "label": "REF",
+                "idx": 0,
+                "pattern": ","
+              },
+              {
+                "type": "NonTerminal",
+                "name": "objectItem",
+                "idx": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Terminal",
+        "name": "tochannel",
+        "label": "tochannel",
+        "idx": 0,
+        "pattern": "}"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "Financial Segment",
+    "orgText": "",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "StringLiteral",
+        "label": "StringLiteral",
+        "idx": 0,
+        "pattern": "\"(?:[^\\\\\"]|\\\\(?:[bfnrtv\"\\\\\\/]|u[0-9a-fA-F]{4}))*\""
+      },
+      {
+        "type": "Terminal",
+        "name": "CUR",
+        "label": "CUR",
+        "idx": 0,
+        "pattern": ":"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "value",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "Selected Data Elements",
+    "orgText": "",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "IT1",
+        "label": "IT1",
+        "idx": 0,
+        "pattern": "\\["
+      },
+      {
+        "type": "Option",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "NonTerminal",
+            "name": "value",
+            "idx": 0
+          },
+          {
+            "type": "Repetition",
+            "idx": 0,
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "REF",
+                "label": "REF",
+                "idx": 0,
+                "pattern": ","
+              },
+              {
+                "type": "NonTerminal",
+                "name": "value",
+                "idx": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Terminal",
+        "name": "FA1",
+        "label": "FA1",
+        "idx": 0,
+        "pattern": "]"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "value",
+    "orgText": "",
+    "definition": [
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "CTT",
+                "label": "CTT 114, Transaction Totals",
+                "idx": 0,
+                "pattern": "\"(?:[^\\\\\"]|\\\\(?:[bfnrtv\"\\\\\\/]|u[0-9a-fA-F]{4}))*\""
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "NumberLiteral",
+                "label": "TXI, 112, Tax Information",
+                "idx": 0,
+                "pattern": "-?(0|[1-9]\\d*)(\\.\\d+)?([eE][+-]?\\d+)?"
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "NTE",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "array",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Loop",
+                "label": "Loop",
+                "idx": 0,
+                "pattern": "Loop"
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Segment",
+                "label": "Segment",
+                "idx": 0,
+                "pattern": "Segment"
+              }
+            ]
+          },
+          {
+            "type": "Alternative",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Null",
+                "label": "SE, 15, Transaction Set Trailer",
+                "idx": 0,
+                "pattern": "null"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+</script>
+
+<script>
+    var diagramsDiv = document.getElementById("diagrams");
+    main.drawDiagramsFromSerializedGrammar(serializedGrammar, diagramsDiv);
+</script>
