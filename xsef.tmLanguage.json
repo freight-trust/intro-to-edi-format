@@ -1,0 +1,108 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Extended Standard Exchange Format",
+	"scopeName": "source.xsef",
+	"patterns": [
+		{
+			"begin": "(^[ \\t]+)?(?=#)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.whitespace.comment.leading.xsef"
+				}
+			},
+			"end": "(?!\\G)",
+			"patterns": [
+				{
+					"begin": "#",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.defxseftion.comment.xsef"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line.number-sign.xsef"
+				}
+			]
+		},
+		{
+			"begin": "(^[ \\t]+)?(?=;)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.whitespace.comment.leading.xsef"
+				}
+			},
+			"end": "(?!\\G)",
+			"patterns": [
+				{
+					"begin": ";",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.defxseftion.comment.xsef"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line.semicolon.xsef"
+				}
+			]
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.other.defxseftion.xsef"
+				},
+				"2": {
+					"name": "punctuation.separator.key-value.xsef"
+				}
+			},
+			"match": "\\b([a-zA-Z0-9_.-]+)\\b\\s*(=)"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.defxseftion.entity.xsef"
+				},
+				"3": {
+					"name": "punctuation.defxseftion.entity.xsef"
+				}
+			},
+			"match": "^(\\[)(.*?)(\\])",
+			"name": "entity.name.section.group-title.xsef"
+		},
+		{
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.defxseftion.string.begin.xsef"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.defxseftion.string.end.xsef"
+				}
+			},
+			"name": "string.quoted.single.xsef",
+			"patterns": [
+				{
+					"match": "\\\\.",
+					"name": "constant.character.escape.xsef"
+				}
+			]
+		},
+		{
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.defxseftion.string.begin.xsef"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.defxseftion.string.end.xsef"
+				}
+			},
+			"name": "string.quoted.double.xsef"
+		}
+	]
+}
