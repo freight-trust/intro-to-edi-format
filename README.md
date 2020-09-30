@@ -74,7 +74,7 @@ DTP*881*D8*20030202~HSD*VS*3******~SE*37*1000~GE*1*001127092~IEA*1*001123616
 ![](https://cdn.mathpix.com/snip/images/W6niCDX2Y6DU_gxNrCU7km-uPOTDgNJbYGSmy2AsTy0.original.fullsize.png)
 
 
-### EDI Support for Microsoft Vosual Studio Code
+### EDI Support for Microsoft VSl Studio Code
 
 https://raw.githubusercontent.com/freight-trust/linguist-edi/master/edi.tmLanguage.json
 
