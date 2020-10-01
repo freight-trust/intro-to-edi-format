@@ -1,0 +1,4060 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="X12" type="X12"/>
+	<xsd:complexType name="X12">
+		<xsd:sequence maxOccurs="unbounded">
+			<xsd:element name="ISA-InterchangeControlHeader" type="ISA"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element name="GS-FunctionalGroupHeader" type="GS"/>
+				<xsd:element name="TS_997" type="TS_997" maxOccurs="unbounded"/>
+				<xsd:element name="GE-FunctionalGroupTrailer" type="GE"/>
+			</xsd:sequence>
+			<xsd:element name="IEA-InterchangeControlTrailer" type="IEA" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TS_997">
+		<xsd:annotation>
+			<xsd:appinfo>004010 997</xsd:appinfo>
+			<xsd:documentation>Functional Acknowledgment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ST-TransactionSetHeader" type="ST"/>
+			<xsd:element name="AK1-FunctionalGroupResponseHeader" type="AK1"/>
+			<xsd:element name="GROUP_1" type="GROUP_1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AK9-FunctionalGroupResponseTrailer" type="AK9"/>
+			<xsd:element name="SE-TransactionSetTrailer" type="SE"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GROUP_1">
+		<xsd:sequence>
+			<xsd:element name="AK2-TransactionSetResponseHeader" type="AK2"/>
+			<xsd:element name="GROUP_2" type="GROUP_2" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AK5-TransactionSetResponseTrailer" type="AK5"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GROUP_2">
+		<xsd:sequence>
+			<xsd:element name="AK3-DataSegmentNote" type="AK3"/>
+			<xsd:element name="AK4-DataElementNote" type="AK4" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AK1">
+		<xsd:sequence>
+			<xsd:element name="AK101-FunctionalIdentifierCode" type="type479"/>
+			<xsd:element name="AK102-GroupControlNumber" type="type28"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AK2">
+		<xsd:sequence>
+			<xsd:element name="AK201-TransactionSetIdentifierCode" type="type143"/>
+			<xsd:element name="AK202-TransactionSetControlNumber" type="type329"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AK3">
+		<xsd:sequence>
+			<xsd:element name="AK301-SegmentIdCode" type="type721"/>
+			<xsd:element name="AK302-SegmentPositionInTransaction" type="type719"/>
+			<xsd:element name="AK303-LoopIdentifierCode" type="type447" minOccurs="0"/>
+			<xsd:element name="AK304-SegmentSyntaxErrorCode" type="type720" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AK4">
+		<xsd:sequence>
+			<xsd:element name="AK401-PositionInSegment">
+				<xsd:complexType><!--C030-->
+					<xsd:sequence>
+						<xsd:element name="AK40101-ElementPositionInSegment" type="type722"/>
+						<xsd:element name="AK40102-ComponentDataElementPosition" type="type1528" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AK402-DataElementReferenceNumber" type="type725" minOccurs="0"/>
+			<xsd:element name="AK403-DataElementSyntaxErrorCode" type="type723"/>
+			<xsd:element name="AK404-CopyOfBadDataElement" type="type724" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AK5">
+		<xsd:sequence>
+			<xsd:element name="AK501-TransactionSetAcknowledgment" type="type717"/>
+			<xsd:element name="AK502-TransactionSetSyntaxErrorCode" type="type718" minOccurs="0"/>
+			<xsd:element name="AK503-TransactionSetSyntaxErrorCode" type="type718" minOccurs="0"/>
+			<xsd:element name="AK504-TransactionSetSyntaxErrorCode" type="type718" minOccurs="0"/>
+			<xsd:element name="AK505-TransactionSetSyntaxErrorCode" type="type718" minOccurs="0"/>
+			<xsd:element name="AK506-TransactionSetSyntaxErrorCode" type="type718" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AK9">
+		<xsd:sequence>
+			<xsd:element name="AK901-FunctionalGroupAcknowledge" type="type715"/>
+			<xsd:element name="AK902-NumberOfTransactionSets" type="type97"/>
+			<xsd:element name="AK903-NumberOfReceivedTransaction" type="type123"/>
+			<xsd:element name="AK904-NumberOfAcceptedTransaction" type="type2"/>
+			<xsd:element name="AK905-FunctionalGroupSyntaxError" type="type716" minOccurs="0"/>
+			<xsd:element name="AK906-FunctionalGroupSyntaxError" type="type716" minOccurs="0"/>
+			<xsd:element name="AK907-FunctionalGroupSyntaxError" type="type716" minOccurs="0"/>
+			<xsd:element name="AK908-FunctionalGroupSyntaxError" type="type716" minOccurs="0"/>
+			<xsd:element name="AK909-FunctionalGroupSyntaxError" type="type716" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GE">
+		<xsd:sequence>
+			<xsd:element name="GE01-NumberOfTransactionSets" type="type97"/>
+			<xsd:element name="GE02-GroupControlNumber" type="type28"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GS">
+		<xsd:sequence>
+			<xsd:element name="GS01-FunctionalIdentifierCode" type="type479"/>
+			<xsd:element name="GS02-ApplicationSendersCode" type="type142"/>
+			<xsd:element name="GS03-ApplicationReceiversCode" type="type124"/>
+			<xsd:element name="GS04-Date" type="type373"/>
+			<xsd:element name="GS05-Time" type="type337"/>
+			<xsd:element name="GS06-GroupControlNumber" type="type28"/>
+			<xsd:element name="GS07-ResponsibleAgencyCode" type="type455"/>
+			<xsd:element name="GS08-VersionReleaseIndustry" type="type480"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IEA">
+		<xsd:sequence>
+			<xsd:element name="IEA01-NumberOfIncludedFunctional" type="typeI16"/>
+			<xsd:element name="IEA02-InterchangeControlNumber" type="typeI12"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ISA">
+		<xsd:sequence>
+			<xsd:element name="ISA01-AuthorizationInformationQualifier" type="typeI01"/>
+			<xsd:element name="ISA02-AuthorizationInformation" type="typeI02"/>
+			<xsd:element name="ISA03-SecurityInformationQualifier" type="typeI03"/>
+			<xsd:element name="ISA04-SecurityInformation" type="typeI04"/>
+			<xsd:element name="ISA05-InterchangeIdQualifier" type="typeI05"/>
+			<xsd:element name="ISA06-InterchangeSenderId" type="typeI06"/>
+			<xsd:element name="ISA07-InterchangeIdQualifier" type="typeI05"/>
+			<xsd:element name="ISA08-InterchangeReceiverId" type="typeI07"/>
+			<xsd:element name="ISA09-InterchangeDate" type="typeI08"/>
+			<xsd:element name="ISA10-InterchangeTime" type="typeI09"/>
+			<xsd:element name="ISA11-InterchangeControlStandards" type="typeI10"/>
+			<xsd:element name="ISA12-InterchangeControlVersion" type="typeI11"/>
+			<xsd:element name="ISA13-InterchangeControlNumber" type="typeI12"/>
+			<xsd:element name="ISA14-AcknowledgmentRequested" type="typeI13"/>
+			<xsd:element name="ISA15-UsageIndicator" type="typeI14"/>
+			<xsd:element name="ISA16-ComponentElementSeparator" type="typeI15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SE">
+		<xsd:sequence>
+			<xsd:element name="SE01-NumberOfIncludedSegments" type="type96"/>
+			<xsd:element name="SE02-TransactionSetControlNumber" type="type329"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ST">
+		<xsd:sequence>
+			<xsd:element name="ST01-TransactionSetIdentifierCode" type="type143"/>
+			<xsd:element name="ST02-TransactionSetControlNumber" type="type329"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="type123">
+		<xsd:annotation>
+			<xsd:documentation>Number of Received Transaction</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type124">
+		<xsd:annotation>
+			<xsd:documentation>Application Receiver's Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type142">
+		<xsd:annotation>
+			<xsd:documentation>Application Sender's Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type143">
+		<xsd:annotation>
+			<xsd:documentation>Transaction Set Identifier Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="100">
+				<xsd:annotation>
+					<xsd:documentation>Insurance Plan Description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="101">
+				<xsd:annotation>
+					<xsd:documentation>Name and Address Lists</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="104">
+				<xsd:annotation>
+					<xsd:documentation>Air Shipment Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="105">
+				<xsd:annotation>
+					<xsd:documentation>Business Entity Filings</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="106">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Rate Proposal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="107">
+				<xsd:annotation>
+					<xsd:documentation>Request for Motor Carrier Rate Proposal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="108">
+				<xsd:annotation>
+					<xsd:documentation>Response to a Motor Carrier Rate Proposal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="109">
+				<xsd:annotation>
+					<xsd:documentation>Vessel Content Details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="110">
+				<xsd:annotation>
+					<xsd:documentation>Air Freight Details and Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="112">
+				<xsd:annotation>
+					<xsd:documentation>Property Damage Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="120">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Shipping Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="121">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Service</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="124">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Damage</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="125">
+				<xsd:annotation>
+					<xsd:documentation>Multilevel Railcar Load Details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="126">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Application Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="127">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Baying Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="128">
+				<xsd:annotation>
+					<xsd:documentation>Dealer Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="129">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Carrier Rate Update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="130">
+				<xsd:annotation>
+					<xsd:documentation>Student Educational Record (Transcript)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="131">
+				<xsd:annotation>
+					<xsd:documentation>Student Educational Record (Transcript) Acknowledgment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="135">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="138">
+				<xsd:annotation>
+					<xsd:documentation>Testing Results Request and Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="139">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Guarantee Result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="140">
+				<xsd:annotation>
+					<xsd:documentation>Product Registration</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="141">
+				<xsd:annotation>
+					<xsd:documentation>Product Service Claim Response</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="142">
+				<xsd:annotation>
+					<xsd:documentation>Product Service Claim</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="143">
+				<xsd:annotation>
+					<xsd:documentation>Product Service Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="144">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Transfer and Status Verification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="146">
+				<xsd:annotation>
+					<xsd:documentation>Request for Student Educational Record (Transcript)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="147">
+				<xsd:annotation>
+					<xsd:documentation>Response to Request for Student Educational Record (Transcript)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="148">
+				<xsd:annotation>
+					<xsd:documentation>Report of Injury, Illness or Incident</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="149">
+				<xsd:annotation>
+					<xsd:documentation>Notice of Tax Adjustment or Assessment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="150">
+				<xsd:annotation>
+					<xsd:documentation>Tax Rate Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="151">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Filing of Tax Return Data Acknowledgment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="152">
+				<xsd:annotation>
+					<xsd:documentation>Statistical Government Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="153">
+				<xsd:annotation>
+					<xsd:documentation>Unemployment Insurance Tax Claim or Charge Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="154">
+				<xsd:annotation>
+					<xsd:documentation>Uniform Commercial Code Filing</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="155">
+				<xsd:annotation>
+					<xsd:documentation>Business Credit Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="157">
+				<xsd:annotation>
+					<xsd:documentation>Notice of Power of Attorney</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="159">
+				<xsd:annotation>
+					<xsd:documentation>Motion Picture Booking Confirmation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="160">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Automatic Equipment Identification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="161">
+				<xsd:annotation>
+					<xsd:documentation>Train Sheet</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="163">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Appointment Schedule Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="170">
+				<xsd:annotation>
+					<xsd:documentation>Revenue Receipts Statement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="175">
+				<xsd:annotation>
+					<xsd:documentation>Court and Law Enforcement Notice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="176">
+				<xsd:annotation>
+					<xsd:documentation>Court Submission</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="180">
+				<xsd:annotation>
+					<xsd:documentation>Return Merchandise Authorization and Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="185">
+				<xsd:annotation>
+					<xsd:documentation>Royalty Regulatory Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="186">
+				<xsd:annotation>
+					<xsd:documentation>Insurance Underwriting Requirements Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="188">
+				<xsd:annotation>
+					<xsd:documentation>Educational Course Inventory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="189">
+				<xsd:annotation>
+					<xsd:documentation>Application for Admission to Educational Institutions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="190">
+				<xsd:annotation>
+					<xsd:documentation>Student Enrollment Verification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="191">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Pre-Claims and Claims</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="194">
+				<xsd:annotation>
+					<xsd:documentation>Grant or Assistance Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="195">
+				<xsd:annotation>
+					<xsd:documentation>Federal Communications Commission (FCC) License Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="196">
+				<xsd:annotation>
+					<xsd:documentation>Contractor Cost Data Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="197">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Title Evidence</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="198">
+				<xsd:annotation>
+					<xsd:documentation>Loan Verification Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="199">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Settlement Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="200">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Credit Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="201">
+				<xsd:annotation>
+					<xsd:documentation>Residential Loan Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="202">
+				<xsd:annotation>
+					<xsd:documentation>Secondary Mortgage Market Loan Delivery</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="203">
+				<xsd:annotation>
+					<xsd:documentation>Secondary Mortgage Market Investor Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="204">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Load Tender</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="205">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Note</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="206">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Inspection</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="210">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Freight Details and Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="211">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Bill of Lading</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="212">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Delivery Trailer Manifest</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="213">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Shipment Status Inquiry</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="214">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Carrier Shipment Status Message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="215">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Pick-up Manifest</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="216">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Shipment Pick-up Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="217">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Loading and Route Guide</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="218">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Tariff Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="219">
+				<xsd:annotation>
+					<xsd:documentation>Logistics Service Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="220">
+				<xsd:annotation>
+					<xsd:documentation>Logistics Service Response</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="222">
+				<xsd:annotation>
+					<xsd:documentation>Cartage Work Assignment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="223">
+				<xsd:annotation>
+					<xsd:documentation>Consolidators Freight Bill and Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="224">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Summary Freight Bill Manifest</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="225">
+				<xsd:annotation>
+					<xsd:documentation>Response to a Cartage Work Assignment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="242">
+				<xsd:annotation>
+					<xsd:documentation>Data Status Tracking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="244">
+				<xsd:annotation>
+					<xsd:documentation>Product Source Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="248">
+				<xsd:annotation>
+					<xsd:documentation>Account Assignment/Inquiry and Service/Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="249">
+				<xsd:annotation>
+					<xsd:documentation>Animal Toxicological Data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="250">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Shipment Management Document</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="251">
+				<xsd:annotation>
+					<xsd:documentation>Pricing Support</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="252">
+				<xsd:annotation>
+					<xsd:documentation>Insurance Producer Administration</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="255">
+				<xsd:annotation>
+					<xsd:documentation>Underwriting Information Services</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="256">
+				<xsd:annotation>
+					<xsd:documentation>Periodic Compensation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="260">
+				<xsd:annotation>
+					<xsd:documentation>Application for Mortgage Insurance Benefits</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="261">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Information Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="262">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Information Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="263">
+				<xsd:annotation>
+					<xsd:documentation>Residential Mortgage Insurance Application Response</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="264">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Loan Default Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="265">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Title Insurance Services Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="266">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage or Property Record Change Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="267">
+				<xsd:annotation>
+					<xsd:documentation>Individual Life, Annuity and Disability Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="268">
+				<xsd:annotation>
+					<xsd:documentation>Annuity Activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="270">
+				<xsd:annotation>
+					<xsd:documentation>Eligibility, Coverage or Benefit Inquiry</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="271">
+				<xsd:annotation>
+					<xsd:documentation>Eligibility, Coverage or Benefit Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="272">
+				<xsd:annotation>
+					<xsd:documentation>Property and Casualty Loss Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="273">
+				<xsd:annotation>
+					<xsd:documentation>Insurance/Annuity Application Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="275">
+				<xsd:annotation>
+					<xsd:documentation>Patient Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="276">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim Status Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="277">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim Status Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="278">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Services Review Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="280">
+				<xsd:annotation>
+					<xsd:documentation>Voter Registration Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="285">
+				<xsd:annotation>
+					<xsd:documentation>Commercial Vehicle Safety and Credentials Information Exchange</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="286">
+				<xsd:annotation>
+					<xsd:documentation>Commercial Vehicle Credentials</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="288">
+				<xsd:annotation>
+					<xsd:documentation>Wage Determination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="290">
+				<xsd:annotation>
+					<xsd:documentation>Cooperative Advertising Agreements</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="300">
+				<xsd:annotation>
+					<xsd:documentation>Reservation (Booking Request) (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="301">
+				<xsd:annotation>
+					<xsd:documentation>Confirmation (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="303">
+				<xsd:annotation>
+					<xsd:documentation>Booking Cancellation (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="304">
+				<xsd:annotation>
+					<xsd:documentation>Shipping Instructions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="306">
+				<xsd:annotation>
+					<xsd:documentation>Dock Receipt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="309">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Manifest</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="310">
+				<xsd:annotation>
+					<xsd:documentation>Freight Receipt and Invoice (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="311">
+				<xsd:annotation>
+					<xsd:documentation>Canadian Customs Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="312">
+				<xsd:annotation>
+					<xsd:documentation>Arrival Notice (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="313">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Status Inquiry (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="315">
+				<xsd:annotation>
+					<xsd:documentation>Status Details (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="317">
+				<xsd:annotation>
+					<xsd:documentation>Delivery/Pickup Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="319">
+				<xsd:annotation>
+					<xsd:documentation>Terminal Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="321">
+				<xsd:annotation>
+					<xsd:documentation>Demurrage Guarantee (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="322">
+				<xsd:annotation>
+					<xsd:documentation>Terminal Operations and Intermodal Ramp Activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="323">
+				<xsd:annotation>
+					<xsd:documentation>Vessel Schedule and Itinerary (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="324">
+				<xsd:annotation>
+					<xsd:documentation>Vessel Stow Plan (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="325">
+				<xsd:annotation>
+					<xsd:documentation>Consolidation of Goods in Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="326">
+				<xsd:annotation>
+					<xsd:documentation>Consignment Summary List</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="350">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Status Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="352">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Carrier General Order Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="353">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Events Advisory Details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="354">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Automated Manifest Archive Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="355">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Acceptance/Rejection</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="356">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Permit to Transfer Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="357">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs In-Bond Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="358">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Consist Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="361">
+				<xsd:annotation>
+					<xsd:documentation>Carrier Interchange Agreement (Ocean)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="362">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Insurance Advice of Shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="404">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carrier Shipment Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="410">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carrier Freight Details and Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="411">
+				<xsd:annotation>
+					<xsd:documentation>Freight Details and Invoice Summary (Rail)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="414">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carhire Settlements</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="417">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carrier Waybill Interchange</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="418">
+				<xsd:annotation>
+					<xsd:documentation>Rail Advance Interchange Consist</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="419">
+				<xsd:annotation>
+					<xsd:documentation>Advance Car Disposition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="420">
+				<xsd:annotation>
+					<xsd:documentation>Car Handling Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="421">
+				<xsd:annotation>
+					<xsd:documentation>Estimated Time of Arrival and Car Scheduling</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="422">
+				<xsd:annotation>
+					<xsd:documentation>Shipper's Car Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="423">
+				<xsd:annotation>
+					<xsd:documentation>Rail Industrial Switch List</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="425">
+				<xsd:annotation>
+					<xsd:documentation>Rail Waybill Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="426">
+				<xsd:annotation>
+					<xsd:documentation>Rail Revenue Waybill</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="429">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Retirement Activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="431">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Station Master File</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="432">
+				<xsd:annotation>
+					<xsd:documentation>Rail Deprescription</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="433">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Reciprocal Switch File</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="434">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Mark Register Update Activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="435">
+				<xsd:annotation>
+					<xsd:documentation>Standard Transportation Commodity Code Master</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="436">
+				<xsd:annotation>
+					<xsd:documentation>Locomotive Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="437">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Junctions and Interchanges Activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="440">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Weights</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="451">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Event Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="452">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Problem Log Inquiry or Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="453">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Service Commitment Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="455">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Parameter Trace Registration</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="456">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Equipment Inquiry or Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="460">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Price Distribution Request or Response</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="463">
+				<xsd:annotation>
+					<xsd:documentation>Rail Rate Reply</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="466">
+				<xsd:annotation>
+					<xsd:documentation>Rate Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="468">
+				<xsd:annotation>
+					<xsd:documentation>Rate Docket Journal Log</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="470">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Clearance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="475">
+				<xsd:annotation>
+					<xsd:documentation>Rail Route File Maintenance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="485">
+				<xsd:annotation>
+					<xsd:documentation>Ratemaking Action</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="486">
+				<xsd:annotation>
+					<xsd:documentation>Rate Docket Expiration</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="490">
+				<xsd:annotation>
+					<xsd:documentation>Rate Group Definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="492">
+				<xsd:annotation>
+					<xsd:documentation>Miscellaneous Rates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="494">
+				<xsd:annotation>
+					<xsd:documentation>Scale Rate Table</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="500">
+				<xsd:annotation>
+					<xsd:documentation>Medical Event Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="501">
+				<xsd:annotation>
+					<xsd:documentation>Vendor Performance Review</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="503">
+				<xsd:annotation>
+					<xsd:documentation>Pricing History</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="504">
+				<xsd:annotation>
+					<xsd:documentation>Clauses and Provisions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="511">
+				<xsd:annotation>
+					<xsd:documentation>Requisition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="517">
+				<xsd:annotation>
+					<xsd:documentation>Material Obligation Validation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="521">
+				<xsd:annotation>
+					<xsd:documentation>Income or Asset Offset</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="527">
+				<xsd:annotation>
+					<xsd:documentation>Material Due-In and Receipt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="536">
+				<xsd:annotation>
+					<xsd:documentation>Logistics Reassignment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="540">
+				<xsd:annotation>
+					<xsd:documentation>Notice of Employment Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="561">
+				<xsd:annotation>
+					<xsd:documentation>Contract Abstract</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="567">
+				<xsd:annotation>
+					<xsd:documentation>Contract Completion Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="568">
+				<xsd:annotation>
+					<xsd:documentation>Contract Payment Management Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="601">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Customs Export Shipment Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="602">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Services Tender</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="620">
+				<xsd:annotation>
+					<xsd:documentation>Excavation Communication</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="622">
+				<xsd:annotation>
+					<xsd:documentation>Intermodal Ramp Activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="625">
+				<xsd:annotation>
+					<xsd:documentation>Well Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="650">
+				<xsd:annotation>
+					<xsd:documentation>Maintenance Service Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="715">
+				<xsd:annotation>
+					<xsd:documentation>Intermodal Group Loading Plan</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="805">
+				<xsd:annotation>
+					<xsd:documentation>Contract Pricing Proposal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="806">
+				<xsd:annotation>
+					<xsd:documentation>Project Schedule Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="810">
+				<xsd:annotation>
+					<xsd:documentation>Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="811">
+				<xsd:annotation>
+					<xsd:documentation>Consolidated Service Invoice/Statement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="812">
+				<xsd:annotation>
+					<xsd:documentation>Credit/Debit Adjustment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="813">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Filing of Tax Return Data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="814">
+				<xsd:annotation>
+					<xsd:documentation>General Request, Response or Confirmation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="815">
+				<xsd:annotation>
+					<xsd:documentation>Cryptographic Service Message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="816">
+				<xsd:annotation>
+					<xsd:documentation>Organizational Relationships</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="818">
+				<xsd:annotation>
+					<xsd:documentation>Commission Sales Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="819">
+				<xsd:annotation>
+					<xsd:documentation>Operating Expense Statement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="820">
+				<xsd:annotation>
+					<xsd:documentation>Payment Order/Remittance Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="821">
+				<xsd:annotation>
+					<xsd:documentation>Financial Information Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="822">
+				<xsd:annotation>
+					<xsd:documentation>Account Analysis</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="823">
+				<xsd:annotation>
+					<xsd:documentation>Lockbox</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="824">
+				<xsd:annotation>
+					<xsd:documentation>Application Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="826">
+				<xsd:annotation>
+					<xsd:documentation>Tax Information Exchange</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="827">
+				<xsd:annotation>
+					<xsd:documentation>Financial Return Notice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="828">
+				<xsd:annotation>
+					<xsd:documentation>Debit Authorization</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="829">
+				<xsd:annotation>
+					<xsd:documentation>Payment Cancellation Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="830">
+				<xsd:annotation>
+					<xsd:documentation>Planning Schedule with Release Capability</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="831">
+				<xsd:annotation>
+					<xsd:documentation>Application Control Totals</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="832">
+				<xsd:annotation>
+					<xsd:documentation>Price/Sales Catalog</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="833">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Credit Report Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="834">
+				<xsd:annotation>
+					<xsd:documentation>Benefit Enrollment and Maintenance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="835">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim Payment/Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="836">
+				<xsd:annotation>
+					<xsd:documentation>Procurement Notices</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="837">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="838">
+				<xsd:annotation>
+					<xsd:documentation>Trading Partner Profile</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="839">
+				<xsd:annotation>
+					<xsd:documentation>Project Cost Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="840">
+				<xsd:annotation>
+					<xsd:documentation>Request for Quotation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="841">
+				<xsd:annotation>
+					<xsd:documentation>Specifications/Technical Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="842">
+				<xsd:annotation>
+					<xsd:documentation>Nonconformance Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="843">
+				<xsd:annotation>
+					<xsd:documentation>Response to Request for Quotation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="844">
+				<xsd:annotation>
+					<xsd:documentation>Product Transfer Account Adjustment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="845">
+				<xsd:annotation>
+					<xsd:documentation>Price Authorization Acknowledgment/Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="846">
+				<xsd:annotation>
+					<xsd:documentation>Inventory Inquiry/Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="847">
+				<xsd:annotation>
+					<xsd:documentation>Material Claim</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="848">
+				<xsd:annotation>
+					<xsd:documentation>Material Safety Data Sheet</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="849">
+				<xsd:annotation>
+					<xsd:documentation>Response to Product Transfer Account Adjustment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="850">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="851">
+				<xsd:annotation>
+					<xsd:documentation>Asset Schedule</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="852">
+				<xsd:annotation>
+					<xsd:documentation>Product Activity Data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="853">
+				<xsd:annotation>
+					<xsd:documentation>Routing and Carrier Instruction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="854">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Delivery Discrepancy Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="855">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Acknowledgment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="856">
+				<xsd:annotation>
+					<xsd:documentation>Ship Notice/Manifest</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="857">
+				<xsd:annotation>
+					<xsd:documentation>Shipment and Billing Notice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="858">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="859">
+				<xsd:annotation>
+					<xsd:documentation>Freight Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="860">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Change Request - Buyer Initiated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="861">
+				<xsd:annotation>
+					<xsd:documentation>Receiving Advice/Acceptance Certificate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="862">
+				<xsd:annotation>
+					<xsd:documentation>Shipping Schedule</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="863">
+				<xsd:annotation>
+					<xsd:documentation>Report of Test Results</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="864">
+				<xsd:annotation>
+					<xsd:documentation>Text Message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="865">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Change Acknowledgment/Request - Seller Initiated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="866">
+				<xsd:annotation>
+					<xsd:documentation>Production Sequence</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="867">
+				<xsd:annotation>
+					<xsd:documentation>Product Transfer and Resale Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="868">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Form Structure</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="869">
+				<xsd:annotation>
+					<xsd:documentation>Order Status Inquiry</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="870">
+				<xsd:annotation>
+					<xsd:documentation>Order Status Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="871">
+				<xsd:annotation>
+					<xsd:documentation>Component Parts Content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="872">
+				<xsd:annotation>
+					<xsd:documentation>Residential Mortgage Insurance Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="875">
+				<xsd:annotation>
+					<xsd:documentation>Grocery Products Purchase Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="876">
+				<xsd:annotation>
+					<xsd:documentation>Grocery Products Purchase Order Change</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="877">
+				<xsd:annotation>
+					<xsd:documentation>Manufacturer Coupon Family Code Structure</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="878">
+				<xsd:annotation>
+					<xsd:documentation>Product Authorization/De-Authorization</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="879">
+				<xsd:annotation>
+					<xsd:documentation>Price Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="880">
+				<xsd:annotation>
+					<xsd:documentation>Grocery Products Invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="881">
+				<xsd:annotation>
+					<xsd:documentation>Manufacturer Coupon Redemption Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="882">
+				<xsd:annotation>
+					<xsd:documentation>Direct Store Delivery Summary Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="883">
+				<xsd:annotation>
+					<xsd:documentation>Market Development Fund Allocation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="884">
+				<xsd:annotation>
+					<xsd:documentation>Market Development Fund Settlement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="885">
+				<xsd:annotation>
+					<xsd:documentation>Retail Account Characteristics</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="886">
+				<xsd:annotation>
+					<xsd:documentation>Customer Call Reporting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="887">
+				<xsd:annotation>
+					<xsd:documentation>Coupon Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="888">
+				<xsd:annotation>
+					<xsd:documentation>Item Maintenance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="889">
+				<xsd:annotation>
+					<xsd:documentation>Promotion Announcement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="891">
+				<xsd:annotation>
+					<xsd:documentation>Deduction Research Report</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="893">
+				<xsd:annotation>
+					<xsd:documentation>Item Information Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="894">
+				<xsd:annotation>
+					<xsd:documentation>Delivery/Return Base Record</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="895">
+				<xsd:annotation>
+					<xsd:documentation>Delivery/Return Acknowledgment or Adjustment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="896">
+				<xsd:annotation>
+					<xsd:documentation>Product Dimension Maintenance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="920">
+				<xsd:annotation>
+					<xsd:documentation>Loss or Damage Claim - General Commodities</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="924">
+				<xsd:annotation>
+					<xsd:documentation>Loss or Damage Claim - Motor Vehicle</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="925">
+				<xsd:annotation>
+					<xsd:documentation>Claim Tracer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="926">
+				<xsd:annotation>
+					<xsd:documentation>Claim Status Report and Tracer Reply</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="928">
+				<xsd:annotation>
+					<xsd:documentation>Automotive Inspection Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="940">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Shipping Order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="943">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Stock Transfer Shipment Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="944">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Stock Transfer Receipt Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="945">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Shipping Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="947">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Inventory Adjustment Advice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="980">
+				<xsd:annotation>
+					<xsd:documentation>Functional Group Totals</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="990">
+				<xsd:annotation>
+					<xsd:documentation>Response To a Load Tender</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="994">
+				<xsd:annotation>
+					<xsd:documentation>Administrative Message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="996">
+				<xsd:annotation>
+					<xsd:documentation>File Transfer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="997">
+				<xsd:annotation>
+					<xsd:documentation>Functional Acknowledgment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="998">
+				<xsd:annotation>
+					<xsd:documentation>Set Cancellation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type1528">
+		<xsd:annotation>
+			<xsd:documentation>Component Data Element Position</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type2">
+		<xsd:annotation>
+			<xsd:documentation>Number of Accepted Transaction</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type28">
+		<xsd:annotation>
+			<xsd:documentation>Group Control Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type329">
+		<xsd:annotation>
+			<xsd:documentation>Transaction Set Control Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type337">
+		<xsd:annotation>
+			<xsd:documentation>Time</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type373">
+		<xsd:annotation>
+			<xsd:documentation>Date</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type447">
+		<xsd:annotation>
+			<xsd:documentation>Loop Identifier Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type455">
+		<xsd:annotation>
+			<xsd:documentation>Responsible Agency Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="T">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Data Coordinating Committee (TDCC)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="X">
+				<xsd:annotation>
+					<xsd:documentation>Accredited Standards Committee X12</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type479">
+		<xsd:annotation>
+			<xsd:documentation>Functional Identifier Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="AA">
+				<xsd:annotation>
+					<xsd:documentation>Account Analysis (822)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AB">
+				<xsd:annotation>
+					<xsd:documentation>Logistics Service Request (219)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Individual Life, Annuity and Disability Application (267)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AF">
+				<xsd:annotation>
+					<xsd:documentation>Application for Admission to Educational Institutions (189)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AG">
+				<xsd:annotation>
+					<xsd:documentation>Application Advice (824)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AH">
+				<xsd:annotation>
+					<xsd:documentation>Logistics Service Response (220)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AI">
+				<xsd:annotation>
+					<xsd:documentation>Automotive Inspection Detail (928)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AK">
+				<xsd:annotation>
+					<xsd:documentation>Student Educational Record (Transcript) Acknowledgment (131)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AL">
+				<xsd:annotation>
+					<xsd:documentation>Set Cancellation (998) and Application Acceptance/Rejection Advice (499)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AN">
+				<xsd:annotation>
+					<xsd:documentation>Return Merchandise Authorization and Notification (180)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AO">
+				<xsd:annotation>
+					<xsd:documentation>Income or Asset Offset (521)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AR">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Stock Transfer Shipment Advice (943)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AS">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Appointment Schedule Information (163)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AT">
+				<xsd:annotation>
+					<xsd:documentation>Animal Toxicological Data (249)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Inventory Adjustment Advice (947)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BC">
+				<xsd:annotation>
+					<xsd:documentation>Business Credit Report (155)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BE">
+				<xsd:annotation>
+					<xsd:documentation>Benefit Enrollment and Maintenance (834)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BF">
+				<xsd:annotation>
+					<xsd:documentation>Business Entity Filings (105)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BL">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Bill of Lading (211)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BS">
+				<xsd:annotation>
+					<xsd:documentation>Shipment and Billing Notice (857)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CA">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Change Acknowledgment/Request - Seller Initiated (865)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CB">
+				<xsd:annotation>
+					<xsd:documentation>Unemployment Insurance Tax Claim or Charge Information (153)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CC">
+				<xsd:annotation>
+					<xsd:documentation>Clauses and Provisions (504)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CD">
+				<xsd:annotation>
+					<xsd:documentation>Credit/Debit Adjustment (812)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CE">
+				<xsd:annotation>
+					<xsd:documentation>Cartage Work Assignment (222)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CF">
+				<xsd:annotation>
+					<xsd:documentation>Corporate Financial Adjustment Information (844 and 849)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CG">
+				<xsd:annotation>
+					<xsd:documentation>Administrative Message (994)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CH">
+				<xsd:annotation>
+					<xsd:documentation>Car Handling Information (420)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CI">
+				<xsd:annotation>
+					<xsd:documentation>Consolidated Service Invoice/Statement (811)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CJ">
+				<xsd:annotation>
+					<xsd:documentation>Manufacturer Coupon Family Code Structure (877)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CK">
+				<xsd:annotation>
+					<xsd:documentation>Manufacturer Coupon Redemption Detail (881)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CM">
+				<xsd:annotation>
+					<xsd:documentation>Component Parts Content (871)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CN">
+				<xsd:annotation>
+					<xsd:documentation>Coupon Notification (887)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CO">
+				<xsd:annotation>
+					<xsd:documentation>Cooperative Advertising Agreements (290)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CP">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Proposal Information (251, 805)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CR">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carhire Settlements (414)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CS">
+				<xsd:annotation>
+					<xsd:documentation>Cryptographic Service Message (815)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CT">
+				<xsd:annotation>
+					<xsd:documentation>Application Control Totals (831)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CV">
+				<xsd:annotation>
+					<xsd:documentation>Commercial Vehicle Safety and Credentials Information Exchange (285)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="D3">
+				<xsd:annotation>
+					<xsd:documentation>Contract Completion Status (567)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="D4">
+				<xsd:annotation>
+					<xsd:documentation>Contract Abstract (561)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="D5">
+				<xsd:annotation>
+					<xsd:documentation>Contract Payment Management Report (568)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DA">
+				<xsd:annotation>
+					<xsd:documentation>Debit Authorization (828)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DD">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Delivery Discrepancy Information (854)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DF">
+				<xsd:annotation>
+					<xsd:documentation>Market Development Fund Allocation (883)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DI">
+				<xsd:annotation>
+					<xsd:documentation>Dealer Information (128)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DM">
+				<xsd:annotation>
+					<xsd:documentation>Shipper's Car Order (422)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DS">
+				<xsd:annotation>
+					<xsd:documentation>Data Status Tracking (242)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DX">
+				<xsd:annotation>
+					<xsd:documentation>Direct Exchange Delivery and Return Information (894, 895)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="EC">
+				<xsd:annotation>
+					<xsd:documentation>Educational Course Inventory (188)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ED">
+				<xsd:annotation>
+					<xsd:documentation>Student Educational Record (Transcript) (130)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="EI">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Equipment Inquiry or Advice (456)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ER">
+				<xsd:annotation>
+					<xsd:documentation>Revenue Receipts Statement (170)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ES">
+				<xsd:annotation>
+					<xsd:documentation>Notice of Employment Status (540)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="EV">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Event Report (451)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="EX">
+				<xsd:annotation>
+					<xsd:documentation>Excavation Communication (620)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FA">
+				<xsd:annotation>
+					<xsd:documentation>Functional Acknowledgment (997)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FB">
+				<xsd:annotation>
+					<xsd:documentation>Freight Invoice (859)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FC">
+				<xsd:annotation>
+					<xsd:documentation>Court and Law Enforcement Information (175, 176)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FG">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Loading and Route Guide (217)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FH">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Tariff Information (218)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FR">
+				<xsd:annotation>
+					<xsd:documentation>Financial Reporting (821, 827)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FT">
+				<xsd:annotation>
+					<xsd:documentation>File Transfer (996)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GB">
+				<xsd:annotation>
+					<xsd:documentation>Average Agreement Demurrage (423)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>Damage Claim Transaction Sets (920, 924, 925, 926)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GE">
+				<xsd:annotation>
+					<xsd:documentation>General Request, Response or Confirmation (814)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GF">
+				<xsd:annotation>
+					<xsd:documentation>Response to a Load Tender (990)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GL">
+				<xsd:annotation>
+					<xsd:documentation>Intermodal Group Loading Plan (715)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GP">
+				<xsd:annotation>
+					<xsd:documentation>Grocery Products Invoice (880)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GR">
+				<xsd:annotation>
+					<xsd:documentation>Statistical Government Information (152)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GT">
+				<xsd:annotation>
+					<xsd:documentation>Grant or Assistance Application (194)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HB">
+				<xsd:annotation>
+					<xsd:documentation>Eligibility, Coverage or Benefit Information (271)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HC">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim (837)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HI">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Services Review Information (278)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HN">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim Status Notification (277)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HP">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim Payment/Advice (835)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HR">
+				<xsd:annotation>
+					<xsd:documentation>Health Care Claim Status Request (276)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HS">
+				<xsd:annotation>
+					<xsd:documentation>Eligibility, Coverage or Benefit Inquiry (270)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IA">
+				<xsd:annotation>
+					<xsd:documentation>Air Freight Details and Invoice (110, 980)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IB">
+				<xsd:annotation>
+					<xsd:documentation>Inventory Inquiry/Advice (846)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IC">
+				<xsd:annotation>
+					<xsd:documentation>Rail Advance Interchange Consist (418)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ID">
+				<xsd:annotation>
+					<xsd:documentation>Insurance/Annuity Application Status (273)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IE">
+				<xsd:annotation>
+					<xsd:documentation>Insurance Producer Administration (252)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IG">
+				<xsd:annotation>
+					<xsd:documentation>Direct Store Delivery Summary Information (882)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="II">
+				<xsd:annotation>
+					<xsd:documentation>Rail Freight Details and Invoice Summary (411)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IJ">
+				<xsd:annotation>
+					<xsd:documentation>Report of Injury, Illness or Incident (148)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IM">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Freight Details and Invoice (210, 980)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IN">
+				<xsd:annotation>
+					<xsd:documentation>Invoice Information (810,819)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IO">
+				<xsd:annotation>
+					<xsd:documentation>Ocean Shipment Billing Details (310, 312, 980)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IP">
+				<xsd:annotation>
+					<xsd:documentation>Intermodal Ramp Activity (622)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IR">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carrier Freight Details and Invoice (410, 980)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IS">
+				<xsd:annotation>
+					<xsd:documentation>Estimated Time of Arrival and Car Scheduling (421)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="KM">
+				<xsd:annotation>
+					<xsd:documentation>Commercial Vehicle Credentials (286)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LA">
+				<xsd:annotation>
+					<xsd:documentation>Federal Communications Commission (FCC) License Application (195)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LB">
+				<xsd:annotation>
+					<xsd:documentation>Lockbox (823)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LI">
+				<xsd:annotation>
+					<xsd:documentation>Locomotive Information (436)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LN">
+				<xsd:annotation>
+					<xsd:documentation>Property and Casualty Loss Notification (272)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LR">
+				<xsd:annotation>
+					<xsd:documentation>Logistics Reassignment (536)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LS">
+				<xsd:annotation>
+					<xsd:documentation>Asset Schedule (851)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LT">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Transfer and Status Verification (144)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MA">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Summary Freight Bill Manifest (224)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MC">
+				<xsd:annotation>
+					<xsd:documentation>Request for Motor Carrier Rate Proposal (107)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MD">
+				<xsd:annotation>
+					<xsd:documentation>Department of Defense Inventory Management (527)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ME">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Origination (198, 200, 201, 261, 262, 263, 833, 872)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MF">
+				<xsd:annotation>
+					<xsd:documentation>Market Development Funds Settlement (884)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MG">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Servicing Transaction Sets (203, 206, 260, 264, 266)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MH">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Rate Proposal (106)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MI">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Shipment Status Inquiry (213)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MJ">
+				<xsd:annotation>
+					<xsd:documentation>Secondary Mortgage Market Loan Delivery (202)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MK">
+				<xsd:annotation>
+					<xsd:documentation>Response to a Motor Carrier Rate Proposal (108)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MM">
+				<xsd:annotation>
+					<xsd:documentation>Medical Event Reporting (500)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MN">
+				<xsd:annotation>
+					<xsd:documentation>Mortgage Note (205)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MO">
+				<xsd:annotation>
+					<xsd:documentation>Maintenance Service Order (650)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MP">
+				<xsd:annotation>
+					<xsd:documentation>Motion Picture Booking Confirmation (159)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MQ">
+				<xsd:annotation>
+					<xsd:documentation>Consolidators Freight Bill and Invoice (223)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MR">
+				<xsd:annotation>
+					<xsd:documentation>Multilevel Railcar Load Details (125)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MS">
+				<xsd:annotation>
+					<xsd:documentation>Material Safety Data Sheet (848)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MT">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Form Structure (868)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MV">
+				<xsd:annotation>
+					<xsd:documentation>Material Obligation Validation (517)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MW">
+				<xsd:annotation>
+					<xsd:documentation>Rail Waybill Response (427)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MX">
+				<xsd:annotation>
+					<xsd:documentation>Material Claim (847)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MY">
+				<xsd:annotation>
+					<xsd:documentation>Response to a Cartage Work Assignment (225)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NC">
+				<xsd:annotation>
+					<xsd:documentation>Nonconformance Report (842)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NL">
+				<xsd:annotation>
+					<xsd:documentation>Name and Address Lists (101)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NP">
+				<xsd:annotation>
+					<xsd:documentation>Notice of Power of Attorney (157)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NT">
+				<xsd:annotation>
+					<xsd:documentation>Notice of Tax Adjustment or Assessment (149)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OC">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Insurance Advice of Shipment (362)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OG">
+				<xsd:annotation>
+					<xsd:documentation>Order Group - Grocery (875, 876)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OR">
+				<xsd:annotation>
+					<xsd:documentation>Organizational Relationships (816)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OW">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Shipping Order (940)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PA">
+				<xsd:annotation>
+					<xsd:documentation>Price Authorization Acknowledgment/Status (845)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PB">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Parameter Trace Registration (455)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PC">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Change Request - Buyer Initiated (860)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PD">
+				<xsd:annotation>
+					<xsd:documentation>Product Activity Data (852)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PE">
+				<xsd:annotation>
+					<xsd:documentation>Periodic Compensation (256)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PF">
+				<xsd:annotation>
+					<xsd:documentation>Annuity Activity (268)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PG">
+				<xsd:annotation>
+					<xsd:documentation>Insurance Plan Description (100)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PH">
+				<xsd:annotation>
+					<xsd:documentation>Pricing History (503)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PI">
+				<xsd:annotation>
+					<xsd:documentation>Patient Information (275)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PJ">
+				<xsd:annotation>
+					<xsd:documentation>Project Schedule Reporting (806)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PK">
+				<xsd:annotation>
+					<xsd:documentation>Project Cost Reporting (839) and Contractor Cost Data Reporting (196)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PL">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Problem Log Inquiry or Advice (452)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PN">
+				<xsd:annotation>
+					<xsd:documentation>Product Source Information (244)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PO">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order (850)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PQ">
+				<xsd:annotation>
+					<xsd:documentation>Property Damage Report (112)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PR">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Acknowledgement (855)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PS">
+				<xsd:annotation>
+					<xsd:documentation>Planning Schedule with Release Capability (830)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PT">
+				<xsd:annotation>
+					<xsd:documentation>Product Transfer and Resale Report (867)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PU">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Shipment Pick-up Notification (216)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PV">
+				<xsd:annotation>
+					<xsd:documentation>Purchase Order Shipment Management Document (250)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="PY">
+				<xsd:annotation>
+					<xsd:documentation>Payment Cancellation Request (829)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="QG">
+				<xsd:annotation>
+					<xsd:documentation>Product Information (878, 879, 888, 889, 893, 896)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="QM">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Carrier Shipment Status Message (214)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="QO">
+				<xsd:annotation>
+					<xsd:documentation>Ocean Shipment Status Information (313, 315)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RA">
+				<xsd:annotation>
+					<xsd:documentation>Payment Order/Remittance Advice (820)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RB">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Clearance (470)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RC">
+				<xsd:annotation>
+					<xsd:documentation>Receiving Advice/Acceptance Certificate (861)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Royalty Regulatory Report (185)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RE">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Stock Receipt Advice (944)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RH">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Reciprocal Switch File (433)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RI">
+				<xsd:annotation>
+					<xsd:documentation>Routing and Carrier Instruction (853)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RJ">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Mark Register Update Activity (434)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RK">
+				<xsd:annotation>
+					<xsd:documentation>Standard Transportation Commodity Code Master (435)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RL">
+				<xsd:annotation>
+					<xsd:documentation>Rail Industrial Switch List (423)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RM">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Station Master File (431)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RN">
+				<xsd:annotation>
+					<xsd:documentation>Requisition Transaction (511)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RO">
+				<xsd:annotation>
+					<xsd:documentation>Ocean Booking Information (300, 301,303)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RP">
+				<xsd:annotation>
+					<xsd:documentation>Commission Sales Report (818)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RQ">
+				<xsd:annotation>
+					<xsd:documentation>Request for Quotation (840) and Procurement Notices (836)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RR">
+				<xsd:annotation>
+					<xsd:documentation>Response to Request For Quotation (843)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RS">
+				<xsd:annotation>
+					<xsd:documentation>Order Status Information (869, 870)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RT">
+				<xsd:annotation>
+					<xsd:documentation>Report of Test Results (863)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RU">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Retirement Activity (429)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RV">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Junctions and Interchanges Activity (437)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RW">
+				<xsd:annotation>
+					<xsd:documentation>Rail Revenue Waybill (426)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RX">
+				<xsd:annotation>
+					<xsd:documentation>Rail Deprescription (432)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RY">
+				<xsd:annotation>
+					<xsd:documentation>Request for Student Educational Record (Transcript) (146)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RZ">
+				<xsd:annotation>
+					<xsd:documentation>Response to Request for Student Educational Record (Transcript) (147)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SA">
+				<xsd:annotation>
+					<xsd:documentation>Air Shipment Information (104)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SB">
+				<xsd:annotation>
+					<xsd:documentation>Switch Rails (424)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SC">
+				<xsd:annotation>
+					<xsd:documentation>Price/Sales Catalog (832)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SD">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Pre-Claims and Claims (191)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SE">
+				<xsd:annotation>
+					<xsd:documentation>Shipper's Export Declaration (601)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SG">
+				<xsd:annotation>
+					<xsd:documentation>Receiving Advice - Grocery (885)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SH">
+				<xsd:annotation>
+					<xsd:documentation>Ship Notice/Manifest (856)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SI">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Information (858)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SJ">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Automatic Equipment Identification (160)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SL">
+				<xsd:annotation>
+					<xsd:documentation>Student Loan Application and Guarantee (135, 139)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SM">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Load Tender (204)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SN">
+				<xsd:annotation>
+					<xsd:documentation>Rail Route File Maintenance (475)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SO">
+				<xsd:annotation>
+					<xsd:documentation>Ocean Shipment Information (304, 306, 309, 311, 317, 319, 321, 322, 323, 324, 325, 350, 352, 353, 354, 355, 356, 357, 358, 361)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SP">
+				<xsd:annotation>
+					<xsd:documentation>Specifications/Technical Information (841)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SQ">
+				<xsd:annotation>
+					<xsd:documentation>Production Sequence (866)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SR">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carrier Shipment Information (404, 419)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SS">
+				<xsd:annotation>
+					<xsd:documentation>Shipping Schedule (862)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ST">
+				<xsd:annotation>
+					<xsd:documentation>Railroad Service Commitment Advice (453)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SU">
+				<xsd:annotation>
+					<xsd:documentation>Account Assignment/Inquiry and Service/Status (248)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SV">
+				<xsd:annotation>
+					<xsd:documentation>Student Enrollment Verification (190)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SW">
+				<xsd:annotation>
+					<xsd:documentation>Warehouse Shipping Advice (945)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TA">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Filing of Tax Return Data Acknowledgment (151)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TC">
+				<xsd:annotation>
+					<xsd:documentation>Court Submission (176)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TD">
+				<xsd:annotation>
+					<xsd:documentation>Trading Partner Profile (838)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TF">
+				<xsd:annotation>
+					<xsd:documentation>Electronic Filing of Tax Return Data (813)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TI">
+				<xsd:annotation>
+					<xsd:documentation>Tax Information Exchange (826)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TM">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Delivery Trailer Manifest (212)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TN">
+				<xsd:annotation>
+					<xsd:documentation>Tax Rate Notification (150)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TO">
+				<xsd:annotation>
+					<xsd:documentation>Real Estate Title Services (197, 199, 265)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TP">
+				<xsd:annotation>
+					<xsd:documentation>Rail Rate Transactions (460, 463, 466, 468, 485, 486, 490, 492, 494)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TR">
+				<xsd:annotation>
+					<xsd:documentation>Train Sheet (161)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TS">
+				<xsd:annotation>
+					<xsd:documentation>Transportation Services Tender (602)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TT">
+				<xsd:annotation>
+					<xsd:documentation>Testing Results Request and Report (138)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TX">
+				<xsd:annotation>
+					<xsd:documentation>Text Message (864)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UA">
+				<xsd:annotation>
+					<xsd:documentation>Retail Account Characteristics (885)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UB">
+				<xsd:annotation>
+					<xsd:documentation>Customer Call Reporting (886)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UC">
+				<xsd:annotation>
+					<xsd:documentation>Uniform Commercial Code Filing (154)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UD">
+				<xsd:annotation>
+					<xsd:documentation>Deduction Research Report (891)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UI">
+				<xsd:annotation>
+					<xsd:documentation>Underwriting Information Services (255)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UP">
+				<xsd:annotation>
+					<xsd:documentation>Motor Carrier Pick-up Manifest (215)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="UW">
+				<xsd:annotation>
+					<xsd:documentation>Insurance Underwriting Requirements Reporting (186)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VA">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Application Advice (126)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VB">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Baying Order (127)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VC">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Shipping Order (120)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VD">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Damage (124)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VE">
+				<xsd:annotation>
+					<xsd:documentation>Vessel Content Details (109)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VH">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Carrier Rate Update (129)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VI">
+				<xsd:annotation>
+					<xsd:documentation>Voter Registration Information (280)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="VS">
+				<xsd:annotation>
+					<xsd:documentation>Vehicle Service (121)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WA">
+				<xsd:annotation>
+					<xsd:documentation>Product Service Transaction Sets (140, 141, 142, 143)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WB">
+				<xsd:annotation>
+					<xsd:documentation>Rail Carrier Waybill Interchange (417)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WG">
+				<xsd:annotation>
+					<xsd:documentation>Vendor Performance Review (501)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WI">
+				<xsd:annotation>
+					<xsd:documentation>Wage Determination (288)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WL">
+				<xsd:annotation>
+					<xsd:documentation>Well Information (625)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WR">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Weights (440)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WT">
+				<xsd:annotation>
+					<xsd:documentation>Rail Waybill Request (425)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type480">
+		<xsd:annotation>
+			<xsd:documentation>Version / Release / Industry</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+			<xsd:enumeration value="001000">
+				<xsd:annotation>
+					<xsd:documentation>ASC X12 Standards Approved by ANSI in 1983</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002000">
+				<xsd:annotation>
+					<xsd:documentation>ASC X12 Standards Approved by ANSI in Feb, 1986</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002001">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved by ASC X12 in November 1987</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002002">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved by ASC X12 through February 1988</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002003">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved by ASC X12 through August 1988</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002031">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved by ASC X12 Through February 1989</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002040">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved by ASC X12 Through May 1989</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002041">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved by ASC X12 Through October 1989</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="002042">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved By ASC X12 Through February 1990</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003000">
+				<xsd:annotation>
+					<xsd:documentation>ASC X12 Standards Approved by ANSI in 1992</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003010">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved By ASC X12 Through June 1990</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003011">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through February 1991</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003012">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1991</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003020">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1991</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003021">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication By ASC X12 Procedures Review Board through February 1992</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003022">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1992</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003030">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board Through October 1992</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003031">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Publication by ASC X12 Procedures Review Board Through February 1993</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003032">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board Through June 1993</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003040">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1993</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003041">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC by ASC X12 Procedures Review Board through February 1994</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003042">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1994</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003050">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1994</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003051">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through February 1995</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003052">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1995</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003060">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1995</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003061">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through February 1996</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003062">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1996</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003070">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1996</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003071">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through February 1997</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="003072">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1997</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="004000">
+				<xsd:annotation>
+					<xsd:documentation>ASC X12 Standards Approved by ANSI in 1997</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="004010">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1997</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="004011">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through February 1998</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="004012">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through June 1998</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="004020">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards Approved for Publication by ASC X12 Procedures Review Board through October 1998</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type715">
+		<xsd:annotation>
+			<xsd:documentation>Functional Group Acknowledge</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+			<xsd:enumeration value="A">
+				<xsd:annotation>
+					<xsd:documentation>Accepted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="E">
+				<xsd:annotation>
+					<xsd:documentation>Accepted, But Errors Were Noted.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="M">
+				<xsd:annotation>
+					<xsd:documentation>Rejected, Message Authentication Code (MAC) Failed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="P">
+				<xsd:annotation>
+					<xsd:documentation>Partially Accepted, At Least One Transaction Set Was Rejected</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="R">
+				<xsd:annotation>
+					<xsd:documentation>Rejected</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="W">
+				<xsd:annotation>
+					<xsd:documentation>Rejected, Assurance Failed Validity Tests</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="X">
+				<xsd:annotation>
+					<xsd:documentation>Rejected, Content After Decryption Could Not Be Analyzed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type716">
+		<xsd:annotation>
+			<xsd:documentation>Functional Group Syntax Error</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Functional Group Not Supported</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="10">
+				<xsd:annotation>
+					<xsd:documentation>Authentication Key Name Unknown</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="11">
+				<xsd:annotation>
+					<xsd:documentation>Encryption Key Name Unknown</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="12">
+				<xsd:annotation>
+					<xsd:documentation>Requested Service (Authentication or Encryption) Not Available</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="13">
+				<xsd:annotation>
+					<xsd:documentation>Unknown Security Recipient</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="14">
+				<xsd:annotation>
+					<xsd:documentation>Unknown Security Originator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="15">
+				<xsd:annotation>
+					<xsd:documentation>Syntax Error in Decrypted Text</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="16">
+				<xsd:annotation>
+					<xsd:documentation>Security Not Supported</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="17">
+				<xsd:annotation>
+					<xsd:documentation>Incorrect Message Length (Encryption Only)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="18">
+				<xsd:annotation>
+					<xsd:documentation>Message Authentication Code Failed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="19">
+				<xsd:annotation>
+					<xsd:documentation>S1E Security End Segment Missing for S1S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Functional Group Version Not Supported</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20">
+				<xsd:annotation>
+					<xsd:documentation>S1S Security Start Segment Missing for S1E End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="21">
+				<xsd:annotation>
+					<xsd:documentation>S2E Security End Segment Missing for S2S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="22">
+				<xsd:annotation>
+					<xsd:documentation>S2S Security Start Segment Missing for S2E Security End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="23">
+				<xsd:annotation>
+					<xsd:documentation>S3E Security End Segment Missing for S3S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="24">
+				<xsd:annotation>
+					<xsd:documentation>S3S Security Start Segment Missing for S3E End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="25">
+				<xsd:annotation>
+					<xsd:documentation>S4E Security End Segment Missing for S4S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="26">
+				<xsd:annotation>
+					<xsd:documentation>S4S Security Start Segment Missing for S4E Security End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Functional Group Trailer Missing</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>Group Control Number in the Functional Group Header and Trailer Do Not Agree</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="5">
+				<xsd:annotation>
+					<xsd:documentation>Number of Included Transaction Sets Does Not Match Actual Count</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="6">
+				<xsd:annotation>
+					<xsd:documentation>Group Control Number Violates Syntax</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type717">
+		<xsd:annotation>
+			<xsd:documentation>Transaction Set Acknowledgment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+			<xsd:enumeration value="A">
+				<xsd:annotation>
+					<xsd:documentation>Accepted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="E">
+				<xsd:annotation>
+					<xsd:documentation>Accepted But Errors Were Noted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="M">
+				<xsd:annotation>
+					<xsd:documentation>Rejected, Message Authentication Code (MAC) Failed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="R">
+				<xsd:annotation>
+					<xsd:documentation>Rejected</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="W">
+				<xsd:annotation>
+					<xsd:documentation>Rejected, Assurance Failed Validity Tests</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="X">
+				<xsd:annotation>
+					<xsd:documentation>Rejected, Content After Decryption Could Not Be Analyzed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type718">
+		<xsd:annotation>
+			<xsd:documentation>Transaction Set Syntax Error Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Transaction Set Not Supported</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="10">
+				<xsd:annotation>
+					<xsd:documentation>Requested Service (Authentication or Encrypted) Not Available</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="11">
+				<xsd:annotation>
+					<xsd:documentation>Unknown Security Recipient</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="12">
+				<xsd:annotation>
+					<xsd:documentation>Incorrect Message Length (Encryption Only)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="13">
+				<xsd:annotation>
+					<xsd:documentation>Message Authentication Code Failed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="15">
+				<xsd:annotation>
+					<xsd:documentation>Unknown Security Originator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="16">
+				<xsd:annotation>
+					<xsd:documentation>Syntax Error in Decrypted Text</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="17">
+				<xsd:annotation>
+					<xsd:documentation>Security Not Supported</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="19">
+				<xsd:annotation>
+					<xsd:documentation>S1E Security End Segment Missing for S1S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Transaction Set Trailer Missing</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20">
+				<xsd:annotation>
+					<xsd:documentation>S1S Security Start Segment Missing for S1E Security End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="21">
+				<xsd:annotation>
+					<xsd:documentation>S2E Security End Segment Missing for S2S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="22">
+				<xsd:annotation>
+					<xsd:documentation>S2S Security Start Segment Missing for S2E Security End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="23">
+				<xsd:annotation>
+					<xsd:documentation>Transaction Set Control Number Not Unique within the Functional Group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="24">
+				<xsd:annotation>
+					<xsd:documentation>S3E Security End Segment Missing for S3S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="25">
+				<xsd:annotation>
+					<xsd:documentation>S3S Security Start Segment Missing for S3E Security End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="26">
+				<xsd:annotation>
+					<xsd:documentation>S4E Security End Segment Missing for S4S Security Start Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="27">
+				<xsd:annotation>
+					<xsd:documentation>S4S Security Start Segment Missing for S4E Security End Segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Transaction Set Control Number in Header and Trailer Do Not Match</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>Number of Included Segments Does Not Match Actual Count</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="5">
+				<xsd:annotation>
+					<xsd:documentation>One or More Segments in Error</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="6">
+				<xsd:annotation>
+					<xsd:documentation>Missing or Invalid Transaction Set Identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="7">
+				<xsd:annotation>
+					<xsd:documentation>Missing or Invalid Transaction Set Control Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="8">
+				<xsd:annotation>
+					<xsd:documentation>Authentication Key Name Unknown</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="9">
+				<xsd:annotation>
+					<xsd:documentation>Encryption Key Name Unknown</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type719">
+		<xsd:annotation>
+			<xsd:documentation>Segment Position in Transaction</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type720">
+		<xsd:annotation>
+			<xsd:documentation>Segment Syntax Error Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Unrecognized segment ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Unexpected segment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Mandatory segment missing</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>Loop Occurs Over Maximum Times</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="5">
+				<xsd:annotation>
+					<xsd:documentation>Segment Exceeds Maximum Use</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="6">
+				<xsd:annotation>
+					<xsd:documentation>Segment Not in Defined Transaction Set</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="7">
+				<xsd:annotation>
+					<xsd:documentation>Segment Not in Proper Sequence</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="8">
+				<xsd:annotation>
+					<xsd:documentation>Segment Has Data Element Errors</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type721">
+		<xsd:annotation>
+			<xsd:documentation>Segment ID Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type722">
+		<xsd:annotation>
+			<xsd:documentation>Element Position in Segment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type723">
+		<xsd:annotation>
+			<xsd:documentation>Data Element Syntax Error Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Mandatory data element missing</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="10">
+				<xsd:annotation>
+					<xsd:documentation>Exclusion Condition Violated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Conditional required data element missing.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Too many data elements.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>Data element too short.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="5">
+				<xsd:annotation>
+					<xsd:documentation>Data element too long.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="6">
+				<xsd:annotation>
+					<xsd:documentation>Invalid character in data element.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="7">
+				<xsd:annotation>
+					<xsd:documentation>Invalid code value.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="8">
+				<xsd:annotation>
+					<xsd:documentation>Invalid Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="9">
+				<xsd:annotation>
+					<xsd:documentation>Invalid Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type724">
+		<xsd:annotation>
+			<xsd:documentation>Copy of Bad Data Element</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="type725">
+		<xsd:annotation>
+			<xsd:documentation>Data Element Reference Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type96">
+		<xsd:annotation>
+			<xsd:documentation>Number of Included Segments</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="type97">
+		<xsd:annotation>
+			<xsd:documentation>Number of Transaction Sets</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI01">
+		<xsd:annotation>
+			<xsd:documentation>Authorization Information Qualifier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="00">
+				<xsd:annotation>
+					<xsd:documentation>No Authorization Information Present (No Meaningful Information in I02)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="01">
+				<xsd:annotation>
+					<xsd:documentation>UCS Communications ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="02">
+				<xsd:annotation>
+					<xsd:documentation>EDX Communications ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="03">
+				<xsd:annotation>
+					<xsd:documentation>Additional Data Identification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="04">
+				<xsd:annotation>
+					<xsd:documentation>Rail Communications ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="05">
+				<xsd:annotation>
+					<xsd:documentation>Department of Defense (DoD) Communication Identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="06">
+				<xsd:annotation>
+					<xsd:documentation>United States Federal Government Communication Identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI02">
+		<xsd:annotation>
+			<xsd:documentation>Authorization Information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI03">
+		<xsd:annotation>
+			<xsd:documentation>Security Information Qualifier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="00">
+				<xsd:annotation>
+					<xsd:documentation>No Security Information Present (No Meaningful Information in I04)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="01">
+				<xsd:annotation>
+					<xsd:documentation>Password</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI04">
+		<xsd:annotation>
+			<xsd:documentation>Security Information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI05">
+		<xsd:annotation>
+			<xsd:documentation>Interchange ID Qualifier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="01">
+				<xsd:annotation>
+					<xsd:documentation>Duns (Dun &amp; Bradstreet)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="02">
+				<xsd:annotation>
+					<xsd:documentation>SCAC (Standard Carrier Alpha Code)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="03">
+				<xsd:annotation>
+					<xsd:documentation>FMC (Federal Maritime Commission)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="04">
+				<xsd:annotation>
+					<xsd:documentation>IATA (International Air Transport Association)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="08">
+				<xsd:annotation>
+					<xsd:documentation>UCC EDI Communications ID (Comm ID)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="09">
+				<xsd:annotation>
+					<xsd:documentation>X.121 (CCITT)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="10">
+				<xsd:annotation>
+					<xsd:documentation>Department of Defense (DoD) Activity Address Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="11">
+				<xsd:annotation>
+					<xsd:documentation>DEA (Drug Enforcement Administration)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="12">
+				<xsd:annotation>
+					<xsd:documentation>Phone (Telephone Companies)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="13">
+				<xsd:annotation>
+					<xsd:documentation>UCS Code (The UCS Code is a Code Used for UCS Transmissions; it includes the Area Code and Telephone Number of a Modem; it Does Not Include Punctuation, Blanks or Access Code)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="14">
+				<xsd:annotation>
+					<xsd:documentation>Duns Plus Suffix</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="15">
+				<xsd:annotation>
+					<xsd:documentation>Petroleum Accountants Society of Canada Company Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="16">
+				<xsd:annotation>
+					<xsd:documentation>Duns Number With 4-Character Suffix</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="17">
+				<xsd:annotation>
+					<xsd:documentation>American Bankers Association (ABA) Transit Routing Number (Including Check Digit, 9 Digit)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="18">
+				<xsd:annotation>
+					<xsd:documentation>Association of American Railroads (AAR) Standard Distribution Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="19">
+				<xsd:annotation>
+					<xsd:documentation>EDI Council of Australia (EDICA) Communications ID Number (COMM ID)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20">
+				<xsd:annotation>
+					<xsd:documentation>Health Industry Number (HIN)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="21">
+				<xsd:annotation>
+					<xsd:documentation>Integrated Postsecondary Education Data System, or (IPEDS)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="22">
+				<xsd:annotation>
+					<xsd:documentation>Federal Interagency Commission on Education, or FICE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="23">
+				<xsd:annotation>
+					<xsd:documentation>National Center for Education Statistics Common Core of Data 12-Digit Number for Pre-K-Grade 12 Institutes, or NCES</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="24">
+				<xsd:annotation>
+					<xsd:documentation>The College Board's Admission Testing Program 4- Digit Code of Postsecondary Institutes, or ATP</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="25">
+				<xsd:annotation>
+					<xsd:documentation>American College Testing Program 4-Digit Code of Postsecondary Institutions, or ACT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="26">
+				<xsd:annotation>
+					<xsd:documentation>Statistics of Canada List of Postsecondary Institutions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="27">
+				<xsd:annotation>
+					<xsd:documentation>Carrier Identification Number as assigned by Health Care Financing Administration (HCFA)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="28">
+				<xsd:annotation>
+					<xsd:documentation>Fiscal Intermediary Identification Number as assigned by Health Care Financing Administration (HCFA)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="29">
+				<xsd:annotation>
+					<xsd:documentation>Medicare Provider and Supplier Identification Number as assigned by Health Care Financing Administration (HCFA)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="30">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Federal Tax Identification Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="31">
+				<xsd:annotation>
+					<xsd:documentation>Jurisdiction Identification Number Plus 4 as assigned by the International Association of Industrial Accident Boards and Commissions (IAIABC)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="32">
+				<xsd:annotation>
+					<xsd:documentation>U.S. Federal Employer Identification Number (FEIN)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="33">
+				<xsd:annotation>
+					<xsd:documentation>National Association of Insurance Commissioners Company Code (NAIC)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="34">
+				<xsd:annotation>
+					<xsd:documentation>Medicaid Provider and Supplier Identification Number as assigned by individual State Medicaid Agencies in conjunction with Health Care Financing Administration (HCFA)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="35">
+				<xsd:annotation>
+					<xsd:documentation>Statistics Canada Canadian College Student Information System Institution Codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="36">
+				<xsd:annotation>
+					<xsd:documentation>Statistics Canada University Student Information System Institution Codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="37">
+				<xsd:annotation>
+					<xsd:documentation>Society of Property Information Compilers and Analysts</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AM">
+				<xsd:annotation>
+					<xsd:documentation>Association Mexicana del Codigo de Producto (AMECOP) Communication ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NR">
+				<xsd:annotation>
+					<xsd:documentation>National Retail Merchants Association (NRMA) - Assigned</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SN">
+				<xsd:annotation>
+					<xsd:documentation>Standard Address Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ZZ">
+				<xsd:annotation>
+					<xsd:documentation>Mutually Defined</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI06">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Sender ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI07">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Receiver ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI08">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Date</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI09">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Time</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI10">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Control Standards</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+			<xsd:enumeration value="U">
+				<xsd:annotation>
+					<xsd:documentation>U.S. EDI Community of ASC X12, TDCC, and UCS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI11">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Control Version</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="00200">
+				<xsd:annotation>
+					<xsd:documentation>Standard Issued as ANSI X12.5-1987</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00201">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standard for Trial Use Approved by ASC X12 Through August 1988</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00204">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standard for Trial Use Approved by ASC X12 Through May 1989</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00300">
+				<xsd:annotation>
+					<xsd:documentation>Standard Issued as ANSI X12.5-1992</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00301">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standard for Trial Use Approved for Publication by ASC X12 Procedures Review Board Through October 1990</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00302">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standard for Trial Use Approved for Publication by ASC X12 Procedures Review Board Through October 1991</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00303">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standard for Trial Use Approved for Publication by ASC X12 Procedures Review Board Through October 1992</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00304">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Trial Use Approved for Publication by ASC X12 Procedures Review Board through October 1993</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00305">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Trial Use Approved for Publication by ASC X12 Procedures Review Board through October 1994</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00306">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Trial Use Approved for Publication by ASC X12 Procedures Review Board through October 1995</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00307">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Trial Use Approved for Publication by ASC X12 Procedures Review Board through October 1996</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00400">
+				<xsd:annotation>
+					<xsd:documentation>Standard Issued as ANSI X12.5-1997</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00401">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Trial Use Approved for Publication by ASC X12 Procedures Review Board through October 1997</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="00402">
+				<xsd:annotation>
+					<xsd:documentation>Draft Standards for Trial Use Approved for Publication by ASC X12 Procedures Review Board through October 1998</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI12">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Control Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI13">
+		<xsd:annotation>
+			<xsd:documentation>Acknowledgment Requested</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+			<xsd:enumeration value="0">
+				<xsd:annotation>
+					<xsd:documentation>No Acknowledgment Requested</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Interchange Acknowledgment Requested</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI14">
+		<xsd:annotation>
+			<xsd:documentation>Usage Indicator</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+			<xsd:enumeration value="I">
+				<xsd:annotation>
+					<xsd:documentation>Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="P">
+				<xsd:annotation>
+					<xsd:documentation>Production Data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="T">
+				<xsd:annotation>
+					<xsd:documentation>Test Data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI15">
+		<xsd:annotation>
+			<xsd:documentation>Component Element Separator</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeI16">
+		<xsd:annotation>
+			<xsd:documentation>Number of Included Functional</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="numeric"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="numeric">
+		<xsd:restriction base="xsd:decimal"/>
+	</xsd:simpleType>
+</xsd:schema>

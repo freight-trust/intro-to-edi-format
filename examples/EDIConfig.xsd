@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by Altova GmbH -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--Schema for MapForce EDI configuration files v3 (starting with V2011r2) -->
+	<xs:element name="Config">
+		<xs:annotation>
+			<xs:documentation>EDI configuration root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Meta" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Reference to specification</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Version" type="xs:string" minOccurs="0"/>
+							<xs:element name="Release" type="xs:string"/>
+							<xs:element name="Agency" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>"UN", "X12" or "HL7"</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Format" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="standard" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Fixed"/>
+									<xs:enumeration value="EDIFACT"/>
+									<xs:enumeration value="X12"/>
+									<xs:enumeration value="HL7"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Elements" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Definition of common elements used in messages</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element ref="Group"/>
+							<xs:element ref="Segment"/>
+							<xs:element ref="Composite"/>
+							<xs:element ref="SubComposite"/>
+							<xs:element ref="Data"/>
+							<xs:element ref="ErrorList"/>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Include" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="collection" type="xs:string" use="optional"/>
+						<xs:attribute name="href" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Message" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Definition of a message type</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MessageType" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>e.g. "BALANC" or "850"</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Description" type="xs:string" minOccurs="0"/>
+							<xs:element name="Revision" type="xs:nonNegativeInteger" minOccurs="0"/>
+							<xs:element name="Date" type="xs:date" minOccurs="0"/>
+							<xs:element ref="Group"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Codelist" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Field" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Title" type="xs:string"/>
+										<xs:element name="Description" type="xs:string"/>
+										<xs:element name="Values">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Value" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Title" type="xs:string" minOccurs="0"/>
+																<xs:element name="Description" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+															<xs:attribute name="Code" type="xs:string" use="required"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Length" type="xs:nonNegativeInteger"/>
+									<xs:attribute name="Type" type="xs:string"/>
+									<xs:attribute name="Name" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="Group" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="Version" type="xs:positiveInteger" use="required" fixed="3"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="allNNI">
+		<xs:annotation>
+			<xs:documentation>for maxOccurs</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:nonNegativeInteger">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="unbounded"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<xs:attributeGroup name="occurs">
+		<xs:annotation>
+			<xs:documentation>for all particles</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="minOccurs" type="xs:nonNegativeInteger" use="optional" default="1"/>
+		<xs:attribute name="maxOccurs" type="allNNI" use="optional" default="1"/>
+		<xs:attribute name="nodeName" type="xs:string"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="StructAttributes">
+		<xs:annotation>
+			<xs:documentation>Common attributes for all structure elements</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="optional"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="ref" type="xs:string"/>
+		<xs:attribute name="info" type="xs:string"/>
+		<xs:attribute name="mergedEntries" type="xs:positiveInteger" default="1">
+			<xs:annotation>
+				<xs:documentation>This element stands for the specified number of consecutive identical entries.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="Group" type="GroupType">
+		<xs:annotation>
+			<xs:documentation>Segment group or logical group</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ErrorList" type="ErrorListType">
+		<xs:annotation>
+			<xs:documentation>ErrorList logical group</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Select" type="SelectType">
+		<xs:annotation>
+			<xs:documentation>Select data element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Segment" type="SegmentType">
+		<xs:annotation>
+			<xs:documentation>Segment</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Composite" type="CompositeType">
+		<xs:annotation>
+			<xs:documentation>Composite data element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SubComposite" type="SubCompositeType">
+		<xs:annotation>
+			<xs:documentation>SubComposite data element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Data" type="DataElementType">
+		<xs:annotation>
+			<xs:documentation>Simple or component data element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!--Data Types-->
+	<xs:complexType name="GroupType">
+		<xs:annotation>
+			<xs:documentation>Segment group or logical group</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="Group"/>
+			<xs:element ref="Segment"/>
+			<xs:element ref="Select"/>
+		</xs:choice>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attributeGroup ref="occurs"/>
+	</xs:complexType>
+	<xs:complexType name="ErrorListType">
+		<xs:annotation>
+			<xs:documentation>ErrorList</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="Group"/>
+			<xs:element ref="Segment"/>
+			<xs:element ref="Select"/>
+		</xs:choice>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attributeGroup ref="occurs"/>
+	</xs:complexType>
+	<xs:complexType name="SelectType">
+		<xs:annotation>
+			<xs:documentation>Select data element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Segment"/>
+		</xs:sequence>
+		<xs:attribute name="type" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Segment"/>
+					<xs:enumeration value="Group"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attributeGroup ref="occurs"/>
+		<xs:attribute name="field" type="xs:string" use="required"/>
+		<xs:attribute name="prefix" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="SegmentType">
+		<xs:annotation>
+			<xs:documentation>Segment</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Data">
+				<xs:annotation>
+					<xs:documentation>Simple or component data element</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="DataElementType">
+							<xs:attributeGroup ref="occurs"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="Composite"/>
+		</xs:choice>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attributeGroup ref="occurs"/>
+	</xs:complexType>
+	<xs:complexType name="CompositeType">
+		<xs:annotation>
+			<xs:documentation>Composite data element</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Data">
+				<xs:annotation>
+					<xs:documentation>Simple or component data element</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="DataElementType">
+							<xs:attributeGroup ref="occurs"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="SubComposite"/>
+		</xs:choice>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attributeGroup ref="occurs"/>
+	</xs:complexType>
+	<xs:complexType name="SubCompositeType">
+		<xs:annotation>
+			<xs:documentation>SubComposite data element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Data">
+				<xs:annotation>
+					<xs:documentation>Simple or component data element</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="DataElementType">
+							<xs:attributeGroup ref="occurs"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attributeGroup ref="occurs"/>
+	</xs:complexType>
+	<xs:complexType name="DataElementType">
+		<xs:annotation>
+			<xs:documentation>Simple or component data element</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="StructAttributes"/>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="minLength" type="xs:nonNegativeInteger"/>
+		<xs:attribute name="maxLength" type="xs:nonNegativeInteger"/>
+		<xs:attribute name="implicitDecimals" type="xs:nonNegativeInteger"/>
+	</xs:complexType>
+</xs:schema>

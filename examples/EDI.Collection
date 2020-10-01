@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messages Version="3">
+	<Meta>
+		<Release>4010</Release>
+		<Agency>X12</Agency>
+	</Meta>
+	<Root File="Envelope.Config"/>
+	<Message Type="100" File="100.Config" Description="Insurance Plan Description"/>
+	<Message Type="101" File="101.Config" Description="Name and Address Lists"/>
+	<Message Type="104" File="104.Config" Description="Air Shipment Information"/>
+	<Message Type="105" File="105.Config" Description="Business Entity Filings"/>
+	<Message Type="106" File="106.Config" Description="Motor Carrier Rate Proposal"/>
+	<Message Type="107" File="107.Config" Description="Request for Motor Carrier Rate Proposal"/>
+	<Message Type="108" File="108.Config" Description="Response to a Motor Carrier Rate Proposal"/>
+	<Message Type="109" File="109.Config" Description="Vessel Content Details"/>
+	<Message Type="110" File="110.Config" Description="Air Freight Details and Invoice"/>
+	<Message Type="112" File="112.Config" Description="Property Damage Report"/>
+	<Message Type="120" File="120.Config" Description="Vehicle Shipping Order"/>
+	<Message Type="121" File="121.Config" Description="Vehicle Service"/>
+	<Message Type="124" File="124.Config" Description="Vehicle Damage"/>
+	<Message Type="125" File="125.Config" Description="Multilevel Railcar Load Details"/>
+	<Message Type="126" File="126.Config" Description="Vehicle Application Advice"/>
+	<Message Type="127" File="127.Config" Description="Vehicle Baying Order"/>
+	<Message Type="128" File="128.Config" Description="Dealer Information"/>
+	<Message Type="129" File="129.Config" Description="Vehicle Carrier Rate Update"/>
+	<Message Type="130" File="130.Config" Description="Student Educational Record (Transcript)"/>
+	<Message Type="131" File="131.Config" Description="Student Educational Record (Transcript) Acknowledgment"/>
+	<Message Type="135" File="135.Config" Description="Student Loan Application"/>
+	<Message Type="138" File="138.Config" Description="Testing Results Request and Report"/>
+	<Message Type="139" File="139.Config" Description="Student Loan Guarantee Result"/>
+	<Message Type="140" File="140.Config" Description="Product Registration"/>
+	<Message Type="141" File="141.Config" Description="Product Service Claim Response"/>
+	<Message Type="142" File="142.Config" Description="Product Service Claim"/>
+	<Message Type="143" File="143.Config" Description="Product Service Notification"/>
+	<Message Type="144" File="144.Config" Description="Student Loan Transfer and Status Verification"/>
+	<Message Type="146" File="146.Config" Description="Request for Student Educational Record (Transcript)"/>
+	<Message Type="147" File="147.Config" Description="Response to Request for Student Educational Record (Transcript)"/>
+	<Message Type="148" File="148.Config" Description="Report of Injury, Illness or Incident"/>
+	<Message Type="149" File="149.Config" Description="Notice of Tax Adjustment or Assessment"/>
+	<Message Type="150" File="150.Config" Description="Tax Rate Notification"/>
+	<Message Type="151" File="151.Config" Description="Electronic Filing of Tax Return Data Acknowledgment"/>
+	<Message Type="152" File="152.Config" Description="Statistical Government Information"/>
+	<Message Type="153" File="153.Config" Description="Unemployment Insurance Tax Claim or Charge Information"/>
+	<Message Type="154" File="154.Config" Description="Uniform Commercial Code Filing"/>
+	<Message Type="155" File="155.Config" Description="Business Credit Report"/>
+	<Message Type="157" File="157.Config" Description="Notice of Power of Attorney"/>
+	<Message Type="159" File="159.Config" Description="Motion Picture Booking Confirmation"/>
+	<Message Type="160" File="160.Config" Description="Transportation Automatic Equipment Identification"/>
+	<Message Type="161" File="161.Config" Description="Train Sheet"/>
+	<Message Type="163" File="163.Config" Description="Transportation Appointment Schedule Information"/>
+	<Message Type="170" File="170.Config" Description="Revenue Receipts Statement"/>
+	<Message Type="175" File="175.Config" Description="Court and Law Enforcement Notice"/>
+	<Message Type="176" File="176.Config" Description="Court Submission"/>
+	<Message Type="180" File="180.Config" Description="Return Merchandise Authorization and Notification"/>
+	<Message Type="185" File="185.Config" Description="Royalty Regulatory Report"/>
+	<Message Type="186" File="186.Config" Description="Insurance Underwriting Requirements Reporting"/>
+	<Message Type="188" File="188.Config" Description="Educational Course Inventory"/>
+	<Message Type="189" File="189.Config" Description="Application for Admission to Educational Institutions"/>
+	<Message Type="190" File="190.Config" Description="Student Enrollment Verification"/>
+	<Message Type="191" File="191.Config" Description="Student Loan Pre-Claims and Claims"/>
+	<Message Type="194" File="194.Config" Description="Grant or Assistance Application"/>
+	<Message Type="195" File="195.Config" Description="Federal Communications Commission (FCC) License Application"/>
+	<Message Type="196" File="196.Config" Description="Contractor Cost Data Reporting"/>
+	<Message Type="197" File="197.Config" Description="Real Estate Title Evidence"/>
+	<Message Type="198" File="198.Config" Description="Loan Verification Information"/>
+	<Message Type="199" File="199.Config" Description="Real Estate Settlement Information"/>
+	<Message Type="200" File="200.Config" Description="Mortgage Credit Report"/>
+	<Message Type="201" File="201.Config" Description="Residential Loan Application"/>
+	<Message Type="202" File="202.Config" Description="Secondary Mortgage Market Loan Delivery"/>
+	<Message Type="203" File="203.Config" Description="Secondary Mortgage Market Investor Report"/>
+	<Message Type="204" File="204.Config" Description="Motor Carrier Load Tender"/>
+	<Message Type="205" File="205.Config" Description="Mortgage Note"/>
+	<Message Type="206" File="206.Config" Description="Real Estate Inspection"/>
+	<Message Type="210" File="210.Config" Description="Motor Carrier Freight Details and Invoice"/>
+	<Message Type="211" File="211.Config" Description="Motor Carrier Bill of Lading"/>
+	<Message Type="212" File="212.Config" Description="Motor Carrier Delivery Trailer Manifest"/>
+	<Message Type="213" File="213.Config" Description="Motor Carrier Shipment Status Inquiry"/>
+	<Message Type="214" File="214.Config" Description="Transportation Carrier Shipment Status Message"/>
+	<Message Type="215" File="215.Config" Description="Motor Carrier Pick-up Manifest"/>
+	<Message Type="216" File="216.Config" Description="Motor Carrier Shipment Pick-up Notification"/>
+	<Message Type="217" File="217.Config" Description="Motor Carrier Loading and Route Guide"/>
+	<Message Type="218" File="218.Config" Description="Motor Carrier Tariff Information"/>
+	<Message Type="219" File="219.Config" Description="Logistics Service Request"/>
+	<Message Type="220" File="220.Config" Description="Logistics Service Response"/>
+	<Message Type="222" File="222.Config" Description="Cartage Work Assignment"/>
+	<Message Type="223" File="223.Config" Description="Consolidators Freight Bill and Invoice"/>
+	<Message Type="224" File="224.Config" Description="Motor Carrier Summary Freight Bill Manifest"/>
+	<Message Type="225" File="225.Config" Description="Response to a Cartage Work Assignment"/>
+	<Message Type="242" File="242.Config" Description="Data Status Tracking"/>
+	<Message Type="244" File="244.Config" Description="Product Source Information"/>
+	<Message Type="248" File="248.Config" Description="Account Assignment/Inquiry and Service/Status"/>
+	<Message Type="249" File="249.Config" Description="Animal Toxicological Data"/>
+	<Message Type="250" File="250.Config" Description="Purchase Order Shipment Management Document"/>
+	<Message Type="251" File="251.Config" Description="Pricing Support"/>
+	<Message Type="252" File="252.Config" Description="Insurance Producer Administration"/>
+	<Message Type="255" File="255.Config" Description="Underwriting Information Services"/>
+	<Message Type="256" File="256.Config" Description="Periodic Compensation"/>
+	<Message Type="260" File="260.Config" Description="Application for Mortgage Insurance Benefits"/>
+	<Message Type="261" File="261.Config" Description="Real Estate Information Request"/>
+	<Message Type="262" File="262.Config" Description="Real Estate Information Report"/>
+	<Message Type="263" File="263.Config" Description="Residential Mortgage Insurance Application Response"/>
+	<Message Type="264" File="264.Config" Description="Mortgage Loan Default Status"/>
+	<Message Type="265" File="265.Config" Description="Real Estate Title Insurance Services Order"/>
+	<Message Type="266" File="266.Config" Description="Mortgage or Property Record Change Notification"/>
+	<Message Type="267" File="267.Config" Description="Individual Life, Annuity and Disability Application"/>
+	<Message Type="268" File="268.Config" Description="Annuity Activity"/>
+	<Message Type="270" File="270.Config" Description="Eligibility, Coverage or Benefit Inquiry"/>
+	<Message Type="271" File="271.Config" Description="Eligibility, Coverage or Benefit Information"/>
+	<Message Type="272" File="272.Config" Description="Property and Casualty Loss Notification"/>
+	<Message Type="273" File="273.Config" Description="Insurance/Annuity Application Status"/>
+	<Message Type="275" File="275.Config" Description="Patient Information"/>
+	<Message Type="276" File="276.Config" Description="Health Care Claim Status Request"/>
+	<Message Type="277" File="277.Config" Description="Health Care Claim Status Notification"/>
+	<Message Type="278" File="278.Config" Description="Health Care Services Review Information"/>
+	<Message Type="280" File="280.Config" Description="Voter Registration Information"/>
+	<Message Type="285" File="285.Config" Description="Commercial Vehicle Safety and Credentials Information Exchange"/>
+	<Message Type="286" File="286.Config" Description="Commercial Vehicle Credentials"/>
+	<Message Type="288" File="288.Config" Description="Wage Determination"/>
+	<Message Type="290" File="290.Config" Description="Cooperative Advertising Agreements"/>
+	<Message Type="300" File="300.Config" Description="Reservation (Booking Request) (Ocean)"/>
+	<Message Type="301" File="301.Config" Description="Confirmation (Ocean)"/>
+	<Message Type="303" File="303.Config" Description="Booking Cancellation (Ocean)"/>
+	<Message Type="304" File="304.Config" Description="Shipping Instructions"/>
+	<Message Type="309" File="309.Config" Description="U.S. Customs Manifest"/>
+	<Message Type="310" File="310.Config" Description="Freight Receipt and Invoice (Ocean)"/>
+	<Message Type="311" File="311.Config" Description="Canadian Customs Information"/>
+	<Message Type="312" File="312.Config" Description="Arrival Notice (Ocean)"/>
+	<Message Type="313" File="313.Config" Description="Shipment Status Inquiry (Ocean)"/>
+	<Message Type="315" File="315.Config" Description="Status Details (Ocean)"/>
+	<Message Type="317" File="317.Config" Description="Delivery/Pickup Order"/>
+	<Message Type="319" File="319.Config" Description="Terminal Information"/>
+	<Message Type="322" File="322.Config" Description="Terminal Operations and Intermodal Ramp Activity"/>
+	<Message Type="323" File="323.Config" Description="Vessel Schedule and Itinerary (Ocean)"/>
+	<Message Type="324" File="324.Config" Description="Vessel Stow Plan (Ocean)"/>
+	<Message Type="325" File="325.Config" Description="Consolidation of Goods In Container"/>
+	<Message Type="326" File="326.Config" Description="Consignment Summary List"/>
+	<Message Type="350" File="350.Config" Description="U.S. Customs Status Information"/>
+	<Message Type="352" File="352.Config" Description="U.S. Customs Carrier General Order Status"/>
+	<Message Type="353" File="353.Config" Description="U.S. Customs Events Advisory Details"/>
+	<Message Type="354" File="354.Config" Description="U.S. Customs Automated Manifest Archive Status"/>
+	<Message Type="355" File="355.Config" Description="U.S. Customs Acceptance/Rejection"/>
+	<Message Type="356" File="356.Config" Description="U.S. Customs Permit to Transfer Request"/>
+	<Message Type="357" File="357.Config" Description="U.S. Customs In-Bond Information"/>
+	<Message Type="358" File="358.Config" Description="U.S. Customs Consist Information"/>
+	<Message Type="361" File="361.Config" Description="Carrier Interchange Agreement (Ocean)"/>
+	<Message Type="362" File="362.Config" Description="Cargo Insurance Advice of Shipment"/>
+	<Message Type="404" File="404.Config" Description="Rail Carrier Shipment Information"/>
+	<Message Type="410" File="410.Config" Description="Rail Carrier Freight Details and Invoice"/>
+	<Message Type="414" File="414.Config" Description="Rail Carhire Settlements"/>
+	<Message Type="417" File="417.Config" Description="Rail Carrier Waybill Interchange"/>
+	<Message Type="418" File="418.Config" Description="Rail Advance Interchange Consist"/>
+	<Message Type="419" File="419.Config" Description="Advance Car Disposition"/>
+	<Message Type="420" File="420.Config" Description="Car Handling Information"/>
+	<Message Type="421" File="421.Config" Description="Estimated Time of Arrival and Car Scheduling"/>
+	<Message Type="422" File="422.Config" Description="Shipper's Car Order"/>
+	<Message Type="423" File="423.Config" Description="Rail Industrial Switch List"/>
+	<Message Type="425" File="425.Config" Description="Rail Waybill Request"/>
+	<Message Type="426" File="426.Config" Description="Rail Revenue Waybill"/>
+	<Message Type="429" File="429.Config" Description="Railroad Retirement Activity"/>
+	<Message Type="431" File="431.Config" Description="Railroad Station Master File"/>
+	<Message Type="432" File="432.Config" Description="Rail Deprescription"/>
+	<Message Type="433" File="433.Config" Description="Railroad Reciprocal Switch File"/>
+	<Message Type="434" File="434.Config" Description="Railroad Mark Register Update Activity"/>
+	<Message Type="435" File="435.Config" Description="Standard Transportation Commodity Code Master"/>
+	<Message Type="436" File="436.Config" Description="Locomotive Information"/>
+	<Message Type="437" File="437.Config" Description="Railroad Junctions and Interchanges Activity"/>
+	<Message Type="440" File="440.Config" Description="Shipment Weights"/>
+	<Message Type="451" File="451.Config" Description="Railroad Event Report"/>
+	<Message Type="452" File="452.Config" Description="Railroad Problem Log Inquiry or Advice"/>
+	<Message Type="453" File="453.Config" Description="Railroad Service Commitment Advice"/>
+	<Message Type="455" File="455.Config" Description="Railroad Parameter Trace Registration"/>
+	<Message Type="456" File="456.Config" Description="Railroad Equipment Inquiry or Advice"/>
+	<Message Type="460" File="460.Config" Description="Railroad Price Distribution Request or Response"/>
+	<Message Type="463" File="463.Config" Description="Rail Rate Reply"/>
+	<Message Type="466" File="466.Config" Description="Rate Request"/>
+	<Message Type="468" File="468.Config" Description="Rate Docket Journal Log"/>
+	<Message Type="470" File="470.Config" Description="Railroad Clearance"/>
+	<Message Type="475" File="475.Config" Description="Rail Route File Maintenance"/>
+	<Message Type="485" File="485.Config" Description="Ratemaking Action"/>
+	<Message Type="486" File="486.Config" Description="Rate Docket Expiration"/>
+	<Message Type="490" File="490.Config" Description="Rate Group Definition"/>
+	<Message Type="492" File="492.Config" Description="Miscellaneous Rates"/>
+	<Message Type="494" File="494.Config" Description="Rail Scale Rates"/>
+	<Message Type="500" File="500.Config" Description="Medical Event Reporting"/>
+	<Message Type="501" File="501.Config" Description="Vendor Performance Review"/>
+	<Message Type="503" File="503.Config" Description="Pricing History"/>
+	<Message Type="504" File="504.Config" Description="Clauses and Provisions"/>
+	<Message Type="511" File="511.Config" Description="Requisition"/>
+	<Message Type="517" File="517.Config" Description="Material Obligation Validation"/>
+	<Message Type="521" File="521.Config" Description="Income or Asset Offset"/>
+	<Message Type="527" File="527.Config" Description="Material Due-In and Receipt"/>
+	<Message Type="536" File="536.Config" Description="Logistics Reassignment"/>
+	<Message Type="540" File="540.Config" Description="Notice of Employment Status"/>
+	<Message Type="561" File="561.Config" Description="Contract Abstract"/>
+	<Message Type="567" File="567.Config" Description="Contract Completion Status"/>
+	<Message Type="568" File="568.Config" Description="Contract Payment Management Report"/>
+	<Message Type="601" File="601.Config" Description="U.S. Customs Export Shipment Information"/>
+	<Message Type="602" File="602.Config" Description="Transportation Services Tender"/>
+	<Message Type="620" File="620.Config" Description="Excavation Communication"/>
+	<Message Type="625" File="625.Config" Description="Well Information"/>
+	<Message Type="650" File="650.Config" Description="Maintenance Service Order"/>
+	<Message Type="715" File="715.Config" Description="Intermodal Group Loading Plan"/>
+	<Message Type="805" File="805.Config" Description="Contract Pricing Proposal"/>
+	<Message Type="806" File="806.Config" Description="Project Schedule Reporting"/>
+	<Message Type="810" File="810.Config" Description="Invoice"/>
+	<Message Type="811" File="811.Config" Description="Consolidated Service Invoice/Statement"/>
+	<Message Type="812" File="812.Config" Description="Credit/Debit Adjustment"/>
+	<Message Type="813" File="813.Config" Description="Electronic Filing of Tax Return Data"/>
+	<Message Type="814" File="814.Config" Description="General Request, Response or Confirmation"/>
+	<Message Type="815" File="815.Config" Description="Cryptographic Service Message"/>
+	<Message Type="816" File="816.Config" Description="Organizational Relationships"/>
+	<Message Type="818" File="818.Config" Description="Commission Sales Report"/>
+	<Message Type="819" File="819.Config" Description="Operating Expense Statement"/>
+	<Message Type="820" File="820.Config" Description="Payment Order/Remittance Advice"/>
+	<Message Type="821" File="821.Config" Description="Financial Information Reporting"/>
+	<Message Type="822" File="822.Config" Description="Account Analysis"/>
+	<Message Type="823" File="823.Config" Description="Lockbox"/>
+	<Message Type="824" File="824.Config" Description="Application Advice"/>
+	<Message Type="826" File="826.Config" Description="Tax Information Exchange"/>
+	<Message Type="827" File="827.Config" Description="Financial Return Notice"/>
+	<Message Type="828" File="828.Config" Description="Debit Authorization"/>
+	<Message Type="829" File="829.Config" Description="Payment Cancellation Request"/>
+	<Message Type="830" File="830.Config" Description="Planning Schedule with Release Capability"/>
+	<Message Type="831" File="831.Config" Description="Application Control Totals"/>
+	<Message Type="832" File="832.Config" Description="Price/Sales Catalog"/>
+	<Message Type="833" File="833.Config" Description="Mortgage Credit Report Order"/>
+	<Message Type="834" File="834.Config" Description="Benefit Enrollment and Maintenance"/>
+	<Message Type="835" File="835.Config" Description="Health Care Claim Payment/Advice"/>
+	<Message Type="836" File="836.Config" Description="Procurement Notices"/>
+	<Message Type="837" File="837.Config" Description="Health Care Claim"/>
+	<Message Type="838" File="838.Config" Description="Trading Partner Profile"/>
+	<Message Type="839" File="839.Config" Description="Project Cost Reporting"/>
+	<Message Type="840" File="840.Config" Description="Request for Quotation"/>
+	<Message Type="841" File="841.Config" Description="Specifications/Technical Information"/>
+	<Message Type="842" File="842.Config" Description="Nonconformance Report"/>
+	<Message Type="843" File="843.Config" Description="Response to Request for Quotation"/>
+	<Message Type="844" File="844.Config" Description="Product Transfer Account Adjustment"/>
+	<Message Type="845" File="845.Config" Description="Price Authorization Acknowledgment/Status"/>
+	<Message Type="846" File="846.Config" Description="Inventory Inquiry/Advice"/>
+	<Message Type="847" File="847.Config" Description="Material Claim"/>
+	<Message Type="848" File="848.Config" Description="Material Safety Data Sheet"/>
+	<Message Type="849" File="849.Config" Description="Response to Product Transfer Account Adjustment"/>
+	<Message Type="850" File="850.Config" Description="Purchase Order"/>
+	<Message Type="851" File="851.Config" Description="Asset Schedule"/>
+	<Message Type="852" File="852.Config" Description="Product Activity Data"/>
+	<Message Type="853" File="853.Config" Description="Routing and Carrier Instruction"/>
+	<Message Type="854" File="854.Config" Description="Shipment Delivery Discrepancy Information"/>
+	<Message Type="855" File="855.Config" Description="Purchase Order Acknowledgment"/>
+	<Message Type="856" File="856.Config" Description="Ship Notice/Manifest"/>
+	<Message Type="857" File="857.Config" Description="Shipment and Billing Notice"/>
+	<Message Type="858" File="858.Config" Description="Shipment Information"/>
+	<Message Type="859" File="859.Config" Description="Freight Invoice"/>
+	<Message Type="860" File="860.Config" Description="Purchase Order Change Request - Buyer Initiated"/>
+	<Message Type="861" File="861.Config" Description="Receiving Advice/Acceptance Certificate"/>
+	<Message Type="862" File="862.Config" Description="Shipping Schedule"/>
+	<Message Type="863" File="863.Config" Description="Report of Test Results"/>
+	<Message Type="864" File="864.Config" Description="Text Message"/>
+	<Message Type="865" File="865.Config" Description="Purchase Order Change Acknowledgment/Request - Seller Initiated"/>
+	<Message Type="866" File="866.Config" Description="Production Sequence"/>
+	<Message Type="867" File="867.Config" Description="Product Transfer and Resale Report"/>
+	<Message Type="868" File="868.Config" Description="Electronic Form Structure"/>
+	<Message Type="869" File="869.Config" Description="Order Status Inquiry"/>
+	<Message Type="870" File="870.Config" Description="Order Status Report"/>
+	<Message Type="871" File="871.Config" Description="Component Parts Content"/>
+	<Message Type="872" File="872.Config" Description="Residential Mortgage Insurance Application"/>
+	<Message Type="875" File="875.Config" Description="Grocery Products Purchase Order"/>
+	<Message Type="876" File="876.Config" Description="Grocery Products Purchase Order Change"/>
+	<Message Type="877" File="877.Config" Description="Manufacturer Coupon Family Code Structure"/>
+	<Message Type="878" File="878.Config" Description="Product Authorization/De-authorization"/>
+	<Message Type="879" File="879.Config" Description="Price Information"/>
+	<Message Type="880" File="880.Config" Description="Grocery Products Invoice"/>
+	<Message Type="881" File="881.Config" Description="Manufacturer Coupon Redemption Detail"/>
+	<Message Type="882" File="882.Config" Description="Direct Store Delivery Summary Information"/>
+	<Message Type="883" File="883.Config" Description="Market Development Fund Allocation"/>
+	<Message Type="884" File="884.Config" Description="Market Development Fund Settlement"/>
+	<Message Type="885" File="885.Config" Description="Retail Account Characteristics"/>
+	<Message Type="886" File="886.Config" Description="Customer Call Reporting"/>
+	<Message Type="887" File="887.Config" Description="Coupon Notification"/>
+	<Message Type="888" File="888.Config" Description="Item Maintenance"/>
+	<Message Type="889" File="889.Config" Description="Promotion Announcement"/>
+	<Message Type="891" File="891.Config" Description="Deduction Research Report"/>
+	<Message Type="893" File="893.Config" Description="Item Information Request"/>
+	<Message Type="894" File="894.Config" Description="Delivery/Return Base Record"/>
+	<Message Type="895" File="895.Config" Description="Delivery/Return Acknowledgment or Adjustment"/>
+	<Message Type="896" File="896.Config" Description="Product Dimension Maintenance"/>
+	<Message Type="920" File="920.Config" Description="Loss or Damage Claim - General Commodities"/>
+	<Message Type="924" File="924.Config" Description="Loss or Damage Claim - Motor Vehicle"/>
+	<Message Type="925" File="925.Config" Description="Claim Tracer"/>
+	<Message Type="926" File="926.Config" Description="Claim Status Report and Tracer Reply"/>
+	<Message Type="928" File="928.Config" Description="Automotive Inspection Detail"/>
+	<Message Type="940" File="940.Config" Description="Warehouse Shipping Order"/>
+	<Message Type="943" File="943.Config" Description="Warehouse Stock Transfer Shipment Advice"/>
+	<Message Type="944" File="944.Config" Description="Warehouse Stock Transfer Receipt Advice"/>
+	<Message Type="945" File="945.Config" Description="Warehouse Shipping Advice"/>
+	<Message Type="947" File="947.Config" Description="Warehouse Inventory Adjustment Advice"/>
+	<Message Type="980" File="980.Config" Description="Functional Group Totals"/>
+	<Message Type="990" File="990.Config" Description="Response to a Load Tender"/>
+	<Message Type="996" File="996.Config" Description="File Transfer"/>
+	<Message Type="997" File="997.Config" Description="Functional Acknowledgment"/>
+	<Message Type="998" File="998.Config" Description="Set Cancellation"/>
+</Messages>

@@ -1,34 +1,40 @@
-# Baseline - EDI support for mainnets/enterprises 
+# Baseline - EDI Transaction Onboarding
 
-## true nft - audited NFT restful protocol
+## Overview
 
-[https://github.com/freight-trust/truenft](https://github.com/freight-trust/truenft)
+This is to get you familiar with just the format and syntax for EDI data, we will not be generating any EDI data in this *lesson*.
 
-## AS2 Server
+#### Why?
 
-[]
+The *WHY* is important: EDI data can be *big*, especially when going into a format like `JSON`. The purpose of this
+repository is so that you can eventually be able to answer this question:
 
-## translation service 
+#### `What Data Elements do I need for my use case?`
 
-[https://github.com/freight-trust/open-edi](https://github.com/freight-trust/open-edi)
+Specific Data elements are described in the `version` and `transaction set` for example: 
 
-### attestation service
+`810 4010 X12`
 
-[https://github.com/freight-trust/attestation-api](https://github.com/freight-trust/attestation-api)
+This mean:
+`810` = The Transaction Set
+`4010` = The Version
+`X12` = The Standards Agency / Issuing Body
 
-### canadian customs 
+## Visual Studio Code
 
-[https://github.com/freight-trust/ace-ac](https://github.com/freight-trust/ace-ac)
+> Marketplace Extenions
 
-### Example Integration: Amazon
+## VSCode Plugin for EDIFACT
 
-[https://github.com/freight-trust/amazon-vendor](https://github.com/freight-trust/amazon-vendor)
+[https://marketplace.visualstudio.com/items?itemName=DAXaholic.vscode-edifact](https://marketplace.visualstudio.com/items?itemName=DAXaholic.vscode-edifact)
 
-### sample onboarding guides
+### VSCode Plugin for ASC X12
 
-[https://github.com/freight-trust/edi-onboarding/tree/master/guides](https://github.com/freight-trust/edi-onboarding/tree/master/guides)
+A Visual Studio Code extension aimed at providing basic support for the EDI X12 format
 
-###  Informative Reference Guide
+[https://marketplace.visualstudio.com/items?itemName=Silvenga.edi-x12-support](https://marketplace.visualstudio.com/items?itemName=Silvenga.edi-x12-support)
+
+### Informative Reference Guide
 
   [https://github.com/freight-trust/informative-baseline](https://github.com/freight-trust/informative-baseline)
 
@@ -120,3 +126,24 @@ Visualize blank space in the message. It's particurlaly useful for the fixed len
 
 
 ### additional documentation
+
+
+## translation service 
+
+[https://github.com/freight-trust/open-edi](https://github.com/freight-trust/open-edi)
+
+### attestation service
+
+[https://github.com/freight-trust/attestation-api](https://github.com/freight-trust/attestation-api)
+
+### canadian customs 
+
+[https://github.com/freight-trust/ace-ac](https://github.com/freight-trust/ace-ac)
+
+### Example Integration: Amazon
+
+[https://github.com/freight-trust/amazon-vendor](https://github.com/freight-trust/amazon-vendor)
+
+### sample onboarding guides
+
+[https://github.com/freight-trust/edi-onboarding/tree/master/guides](https://github.com/freight-trust/edi-onboarding/tree/master/guides)
