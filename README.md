@@ -35,6 +35,62 @@ This mean:
 `4010` = The Version
 `X12` = The Standards Agency / Issuing Body
 
+## Reference Guide
+
+> Quick Glossary of Terms
+
+### Abbreviations
+
+ANSI: American National Standards Institute
+AU: Access unit
+DIT: Directory information tree
+DL: Distribution list
+DUA: Directory user agent
+EDI: Electronic data interchange
+EDIME: EDI messaging environment
+EDIFACT Electronic data interchange for Administration, commerce and transport
+EDIM: EDI message
+
+## Terms  ANSI X12
+ Application reference
+ Date and Time ofTransmission
+ GS
+ Interchange header
+ Functional group header
+ Transaction set header
+ ISA
+ IEA
+ Recipient;s transmission reference/password
+ ST
+ Transmission sender
+ Transmission recipient
+ Transmission priority code
+
+
+## Terms  ISO 9735
+
+ Acknowledgment request
+ Application reference
+ Communication agreement ID
+ Date/time of preparation
+ Functional group header
+ Interchage control reference
+ Interchange header
+ Interchange recipient
+ Interchange sender
+ Message header
+ Processing priority code
+ Recipients reference, password
+ Service string advice
+ Syntax identifier
+ Test indicator
+ UNA
+ UNB
+ UNG
+ UNH
+ UNT
+ UNZ
+
 ## Visual Studio Code
 
 > Marketplace Extensions
@@ -122,10 +178,11 @@ is a valid transaction receipt where TransactionType identifies the format of th
 transaction/receipt contents, which are defined in future EIPs.
   [eip-2733](https://eips.ethereum.org/EIPS/eip-2733)
   
-  
+
 ## Tooling & Development
 
 ### GNU EMACS
+
 What does x12-mode do
 
 Either view is easier to navigate - visually, emotionally,or by keystrokes. To summarize, the mode will provide the following functionality for you:
@@ -138,6 +195,7 @@ Combine segments together into one big string (or, "glue" it) - it is usually th
 Visualize blank space in the message. It's particularly useful for the fixed length fields and for spotting un-printable characters that got into the message accidentally.
 
 ### additional documentation
+
 
 - translation service 
 
