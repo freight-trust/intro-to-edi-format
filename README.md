@@ -4,6 +4,21 @@
 
 This is to get you familiar with just the format and syntax for EDI data, we will not be generating any EDI data in this *lesson*.
 
+- editor-plugins
+	* this contains syntax highlighting for popular editors
+
+- examples:
+ * this contains some reference files for transaction sets and XSD schemas to validate against
+
+- edi-diff-compare:
+	* this is an example of comparing (i.e. diffing) between a `valid` and `invalid` transaction.
+	> *NOTE* for proper diffing you need to set your `.gitattributes` 
+
+- schemas:
+	* this is for reference for X12 4010 in `.json` format
+
+More examples can be posted, simply open an issue if you like to request something specific
+
 #### Why?
 
 The *WHY* is important: EDI data can be *big*, especially when going into a format like `JSON`. The purpose of this
@@ -22,7 +37,7 @@ This mean:
 
 ## Visual Studio Code
 
-> Marketplace Extenions
+> Marketplace Extensions
 
 ## VSCode Plugin for EDIFACT
 
@@ -76,26 +91,25 @@ DTP*881*D8*20030202~HSD*VS*3******~SE*37*1000~GE*1*001127092~IEA*1*001123616
 
 > hint, zoom out, like 25%
 
-
 ![](https://cdn.mathpix.com/snip/images/W6niCDX2Y6DU_gxNrCU7km-uPOTDgNJbYGSmy2AsTy0.original.fullsize.png)
-
 
 ### EDI Support for Microsoft VSl Studio Code
 
 https://raw.githubusercontent.com/freight-trust/linguist-edi/master/edi.tmLanguage.json
 
-### Interchange Library 
+### Interchange Library
 
 [https://github.com/freight-trust/libinterchange/](https://github.com/freight-trust/libinterchange/)
 
-### Example Integrations 
+### Example Integrations
 
-#### Amazon - 810 commerical invoice
+#### Amazon - 810 commercial invoice
 
 https://github.com/freight-trust/amazon-vendor/tree/master/packages/810
 
+## Ethereum EIP's
 
-##### EIP's
+> These may prove to further extend functionality down the road, they are put here for informative purposes.
 
   [eip-2718](https://eips.ethereum.org/EIPS/eip-2718)
   Simple Summary
@@ -109,9 +123,8 @@ transaction/receipt contents, which are defined in future EIPs.
   [eip-2733](https://eips.ethereum.org/EIPS/eip-2733)
   
   
-## Tooling & Development 
-### Visutal studio code
-### VIM 
+## Tooling & Development
+
 ### GNU EMACS
 What does x12-mode do
 
@@ -122,28 +135,43 @@ Define navigation by fields (called "data elements" in X12 argot).
 Define navigation by segments.
 Split an X12 message to be presented as one segment per line (or "break" it) - it is easier to read this way.
 Combine segments together into one big string (or, "glue" it) - it is usually the way the messages are transmitted.
-Visualize blank space in the message. It's particurlaly useful for the fixed length fields and for spotting un-printable characters that got into the message accidentally.
-
+Visualize blank space in the message. It's particularly useful for the fixed length fields and for spotting un-printable characters that got into the message accidentally.
 
 ### additional documentation
 
-
-## translation service 
+- translation service 
 
 [https://github.com/freight-trust/open-edi](https://github.com/freight-trust/open-edi)
 
-### attestation service
+- attestation service
 
 [https://github.com/freight-trust/attestation-api](https://github.com/freight-trust/attestation-api)
 
-### canadian customs 
+- canadian customs
 
 [https://github.com/freight-trust/ace-ac](https://github.com/freight-trust/ace-ac)
 
-### Example Integration: Amazon
+- Example Integration: Amazon
 
 [https://github.com/freight-trust/amazon-vendor](https://github.com/freight-trust/amazon-vendor)
 
-### sample onboarding guides
+- sample onboarding guides 
+
+> These are refereed to as `ESC` guides
 
 [https://github.com/freight-trust/edi-onboarding/tree/master/guides](https://github.com/freight-trust/edi-onboarding/tree/master/guides)
+
+
+## License
+
+All Licenses are owned by their respective Authors. We make no claim on license nor copyright. 
+
+Accredited Standards Committee X12, X12N. [www.x12.org](https://www.x12.org)
+004010 X12 Incorporated
+
+```
+U.S. Copyright laws and X12 Intellectual Property (IP) policies apply to the use and distribution of any X12 
+product, including published and draft works. X12's copyrighted products, include but are not limited to, 
+standards, technical reports, guidelines, workbooks, segment directories, element directories, data element 
+dictionaries, table data, schema, and mapping instructions.
+```
