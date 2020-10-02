@@ -39,57 +39,58 @@ This mean:
 
 > Quick Glossary of Terms
 
+
 ### Abbreviations
 
-ANSI: American National Standards Institute
-AU: Access unit
-DIT: Directory information tree
-DL: Distribution list
-DUA: Directory user agent
-EDI: Electronic data interchange
-EDIME: EDI messaging environment
-EDIFACT Electronic data interchange for Administration, commerce and transport
-EDIM: EDI message
+ANSI: American National Standards Institute <br>
+AU: Access unit <br>
+DIT: Directory information tree <br>
+DL: Distribution list <br>
+DUA: Directory user agent <br> 
+EDI: Electronic data interchange <br>
+EDIME: EDI messaging environment <br>
+EDIFACT Electronic data interchange for Administration, commerce and transport <br>
+EDIM: EDI message <br>
 
 ## Terms  ANSI X12
- Application reference
- Date and Time ofTransmission
- GS
- Interchange header
- Functional group header
- Transaction set header
- ISA
- IEA
- Recipient;s transmission reference/password
- ST
- Transmission sender
- Transmission recipient
- Transmission priority code
+ Application reference <br>
+ Date and Time ofTransmission <br> 
+ GS <br>
+ Interchange header <br>
+ Functional group header <br>
+ Transaction set header <br>
+ ISA <br>
+ IEA <br>
+ Recipient;s transmission reference/password <br>
+ ST <br>
+ Transmission sender <br>
+ Transmission recipient <br>
+ Transmission priority code <br> 
 
 
-## Terms  ISO 9735
+## ISO 9735
 
- Acknowledgment request
- Application reference
- Communication agreement ID
- Date/time of preparation
- Functional group header
- Interchage control reference
- Interchange header
- Interchange recipient
- Interchange sender
- Message header
- Processing priority code
- Recipients reference, password
- Service string advice
- Syntax identifier
- Test indicator
- UNA
- UNB
- UNG
- UNH
- UNT
- UNZ
+ Acknowledgment request <br>
+ Application reference <br>
+ Communication agreement ID <br>
+ Date/time of preparation <br> 
+ Functional group header <br>
+ Interchage control reference <br>
+ Interchange header <br>
+ Interchange recipient <br>
+ Interchange sender <br>
+ Message header <br>
+ Processing priority code <br> 
+ Recipients reference, password <br>
+ Service string advice <br>
+ Syntax identifier <br>
+ Test indicator <br>
+ UNA <br>
+ UNB <br>
+ UNG <br>
+ UNH <br>
+ UNT <br>
+ UNZ <br>
 
 ## Visual Studio Code
 
