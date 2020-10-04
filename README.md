@@ -37,6 +37,8 @@ This mean:
 
 ## Reference Guide
 
+[Google Sheets Webpage for an Example 846 transaction with Amazon, broken down into separate sheets](https://docs.google.com/spreadsheets/d/e/2PACX-1vQuu9LCzRpVJ0uaSWRhXcQapI-WJEW1CUa6fwz4xJFWzcgfNLeYQJGfJm77bPBfhwyZlnBjNLenBjFe/pubhtml)
+
 > Quick Glossary of Terms
 
 
